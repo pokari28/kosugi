@@ -15,27 +15,38 @@ JS="$(basename "$(ls "$OUT"/assets/index-*.js | head -1)")"
 CSS="$(basename "$(ls "$OUT"/assets/styles-*.css | head -1)")"
 echo "JS=$JS CSS=$CSS"
 
-cat > "$OUT/index.html" <<EOF
-<!DOCTYPE html>
-<html lang="ja">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-    <title>株式会社コスギ｜ユニフォーム専門店</title>
-    <meta name="description" content="株式会社コスギは秋田・庄内エリアを中心に、作業服・事務服・白衣などワーキングウェアを提案するユニフォーム専門店です。" />
-    <meta name="theme-color" content="#002559" />
-    <link rel="icon" type="image/svg+xml" href="${BASE}/favicon.svg" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" />
-    <link rel="stylesheet" href="${BASE}/assets/${CSS}" />
-    <script type="module" src="${BASE}/assets/${JS}"></script>
-  </head>
-  <body></body>
-</html>
-EOF
+node scripts/prerender-pages.mjs "$OUT"
 
+fix_html() {
+  local file="$1"
+  python3 - "$file" "$BASE" "$CSS" "$JS" <<'PY'
+import re, sys
+path, base, css, js = sys.argv[1], sys.argv[2], sys.argv[3], sys.argv[4]
+text = open(path, "rb").read().decode("utf-8", "replace")
+text = re.sub(r"/kosugi/assets/styles-[^\"']+\.css", f"{base}/assets/{css}", text)
+text = re.sub(r"/kosugi/assets/index-[^\"']+\.js", f"{base}/assets/{js}", text)
+text = text.replace('href="/favicon.svg"', f'href="{base}/favicon.svg"')
+text = text.replace('href="/__grok/', f'href="{base}/__grok/')
+open(path, "w", encoding="utf-8").write(text)
+print(f"fixed {path} ({len(text)} bytes)")
+PY
+}
+
+fix_html "$OUT/index.html"
 cp "$OUT/index.html" "$OUT/404.html"
+[ -f "$OUT/contact/index.html" ] && fix_html "$OUT/contact/index.html"
+[ -f "$OUT/privacy/index.html" ] && fix_html "$OUT/privacy/index.html"
+
 touch "$OUT/.nojekyll"
 rm -f "$OUT/cosugi-website.zip" "$OUT/index"
+rm -rf "$OUT/kosugi"
+
+echo "==== public ===="
 ls -la "$OUT"
+python3 - <<'PY'
+from pathlib import Path
+t = Path(".output/public/index.html").read_text(encoding="utf-8")
+assert "株式会社コスギ" in t, "homepage HTML missing site content"
+assert "<body></body>" not in t.replace(" ", "")
+print("homepage ok", len(t), "bytes")
+PY

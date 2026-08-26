@@ -174,9 +174,9 @@ export default defineConfig(({ command, isPreview }) => ({
         ? {
             spa: { enabled: true },
             pages: [
-              { path: "/", prerender: { enabled: true } },
-              { path: "/contact", prerender: { enabled: true } },
-              { path: "/privacy", prerender: { enabled: true } },
+              { path: "/kosugi/", prerender: { enabled: true } },
+              { path: "/kosugi/contact", prerender: { enabled: true } },
+              { path: "/kosugi/privacy", prerender: { enabled: true } },
             ],
           }
         : {},
