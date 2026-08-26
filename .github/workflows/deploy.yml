@@ -25,7 +25,7 @@ jobs:
           node-version: "22"
           cache: npm
 
-      - run: npm ci
+      - run: npm install --no-audit --no-fund
 
       - name: Build static site
         run: npm run build:pages
@@ -40,6 +40,8 @@ jobs:
             echo "Build output not found"
             ls -la
             ls -la .output || true
+            ls -la dist || true
+            ls -la .vercel/output/static || true
             exit 1
           fi
           touch "$OUT/.nojekyll"
