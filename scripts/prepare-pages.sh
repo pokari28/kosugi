@@ -2,7 +2,7 @@
 set -euo pipefail
 
 OUT="${1:-.output/public}"
-BASE="/bamboo-fair-bloom-crane"
+BASE="/kosugi"
 
 if [ ! -d "$OUT/assets" ]; then
   echo "Missing $OUT/assets"

@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { Chevron } from "./layout";
+import { asset } from "@/lib/paths";
 
 export function Original() {
   return (
@@ -25,7 +26,7 @@ export function Original() {
         <div className="grid grid-rows-[minmax(160px,0.85fr)_minmax(180px,1.15fr)] gap-3 py-0 pb-8 lg:py-8">
           <div className="overflow-hidden bg-navy-2">
             <img
-              src="/images/original-bag.jpg"
+              src={asset("/images/original-bag.jpg")}
               alt="COSUGI 刺繍入りオリジナルバッグ"
               className="img-cover object-[center_35%]"
               width={1100}
@@ -36,7 +37,7 @@ export function Original() {
           <div className="grid grid-cols-2 gap-3">
             <div className="overflow-hidden bg-navy-2">
               <img
-                src="/images/original-backs.jpg"
+                src={asset("/images/original-backs.jpg")}
                 alt="オリジナルユニフォームを着用したスタッフ"
                 className="img-cover object-[center_20%]"
                 width={1448}
@@ -46,7 +47,7 @@ export function Original() {
             </div>
             <div className="overflow-hidden bg-paper">
               <img
-                src="/images/original-sketch.jpg"
+                src={asset("/images/original-sketch.jpg")}
                 alt="ユニフォームのデザイン画"
                 className="img-cover object-center"
                 width={700}

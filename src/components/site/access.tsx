@@ -1,4 +1,5 @@
 import { COMPANY } from "@/data/site";
+import { asset } from "@/lib/paths";
 
 const embedSrc = `https://maps.google.com/maps?q=${encodeURIComponent(COMPANY.mapsQuery)}&hl=ja&z=16&output=embed`;
 
@@ -16,7 +17,7 @@ export function Access() {
             aria-label="Google マップで開く"
           >
             <img
-              src="/images/map.jpg"
+              src={asset("/images/map.jpg")}
               alt=""
               className="absolute inset-0 h-full w-full object-cover"
               width={1000}

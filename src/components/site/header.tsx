@@ -7,7 +7,7 @@ import { Logo } from "./logo";
 import { CloseIcon, MailIcon, MenuIcon } from "./icons";
 import { cn } from "@/lib/utils";
 
-export function Header() {
+export function Header({ overlay = false }: { overlay?: boolean }) {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -25,14 +25,22 @@ export function Header() {
     };
   }, [open]);
 
+  const solid = open || (!overlay && scrolled);
+
   return (
     <header
       className={cn(
-        "sticky top-0 z-50 bg-paper transition-shadow duration-200",
-        scrolled && "shadow-[var(--shadow-header)]",
+        "z-50 transition-[background-color,box-shadow] duration-200",
+        overlay ? "fixed top-0 right-0 left-0" : "sticky top-0",
+        solid ? "bg-paper shadow-[var(--shadow-header)]" : "bg-transparent",
       )}
     >
-      <div className="site-wrap flex h-[68px] items-stretch md:h-[74px]">
+      <div
+        className={cn(
+          "site-wrap flex h-[68px] items-stretch md:h-[74px]",
+          overlay && !open && "[filter:drop-shadow(0_1px_8px_rgb(255_255_255))]",
+        )}
+      >
         <div className="flex items-center">
           <Logo />
         </div>

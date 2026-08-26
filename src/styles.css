@@ -265,7 +265,6 @@
   html.snap-home,
   html.snap-home body {
     padding-bottom: 0;
-    overscroll-behavior-y: none;
   }
 
   html.snap-home {
@@ -286,15 +285,13 @@
     box-sizing: border-box;
     height: 100dvh;
     max-height: 100dvh;
-    min-height: 100svh;
+    min-height: 100dvh;
     padding-top: 68px;
     padding-bottom: calc(80px + env(safe-area-inset-bottom, 0px));
-    overflow-x: hidden;
-    overflow-y: auto;
+    overflow: hidden;
     scroll-margin: 0;
     scroll-snap-align: start;
     scroll-snap-stop: always;
-    -webkit-overflow-scrolling: touch;
   }
 
   html.snap-home main > section.snap-hero {
@@ -338,11 +335,12 @@
 
   html.snap-home main > section.snap-hero {
     padding-top: 0;
+    margin-top: 0;
   }
 
   html.snap-home .snap-hero-stage .site-wrap {
-    padding-top: calc(68px + 8px);
-    padding-bottom: 12px;
+    padding-top: calc(68px + 28px);
+    padding-bottom: 16px;
   }
 
   html.snap-home .hero-title {
@@ -514,9 +512,9 @@
 
   html.snap-home #flow ol {
     display: grid;
-    margin-top: 16px;
+    margin-top: 12px;
     grid-template-columns: 1fr;
-    gap: 8px;
+    gap: 4px;
   }
 
   html.snap-home #flow li {
@@ -524,8 +522,16 @@
   }
 
   html.snap-home #flow .size-16 {
-    width: 40px;
-    height: 40px;
+    width: 36px;
+    height: 36px;
+  }
+
+  html.snap-home #flow h3 {
+    font-size: 13px;
+  }
+
+  html.snap-home #flow .whitespace-pre-line {
+    display: none;
   }
 
   html.snap-home #contact-cta .site-wrap {

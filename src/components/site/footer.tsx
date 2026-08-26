@@ -25,7 +25,7 @@ export function Footer() {
           <ul className="space-y-2.5">
             {FOOTER_NAV_RIGHT.map((item) => (
               <li key={item.href}>
-                {item.href === "/privacy" ? (
+                {item.label === "プライバシーポリシー" ? (
                   <Link to="/privacy" className="text-paper/90 transition-opacity hover:opacity-70">
                     {item.label}
                   </Link>

@@ -1,4 +1,5 @@
 import { COMPANY } from "@/data/site";
+import { asset } from "@/lib/paths";
 import { Chevron } from "./layout";
 
 const ROWS = [
@@ -35,7 +36,7 @@ export function About() {
           </p>
           <div className="aspect-[16/10] overflow-hidden bg-line">
             <img
-              src="/images/building.jpg"
+              src={asset("/images/building.jpg")}
               alt="株式会社コスギ 社屋外観"
               className="img-cover object-[center_60%]"
               width={1536}

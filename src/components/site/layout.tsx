@@ -19,7 +19,7 @@ export function SiteLayout({
       >
         本文へスキップ
       </a>
-      <Header />
+      <Header overlay={snap} />
       <main id="main">{children}</main>
       <Footer />
       <MobileDock />

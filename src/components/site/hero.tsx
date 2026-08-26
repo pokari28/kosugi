@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import { HERO_SLIDES } from "@/data/site";
+import { asset } from "@/lib/paths";
 import { BuildingIcon, ChevronIcon, HandsIcon, ShirtIcon, SlidePointIcon } from "./icons";
 import { cn } from "@/lib/utils";
 
@@ -72,7 +73,7 @@ export function Hero() {
           "snap-hero-stage relative overflow-hidden",
           isMain
             ? "min-h-[420px] md:min-h-[560px] lg:min-h-[640px]"
-            : "h-[min(62vw,560px)] min-h-[320px] md:min-h-[440px]",
+            : "h-[min(78vw,680px)] min-h-[420px] md:min-h-[580px] lg:min-h-[640px]",
         )}
       >
         {HERO_SLIDES.map((item, i) => (
@@ -92,7 +93,7 @@ export function Hero() {
           />
         ))}
 
-        <div className="site-wrap relative z-[2] flex h-full flex-col justify-center py-10 md:py-14 lg:py-16">
+        <div className="site-wrap relative z-[2] flex h-full flex-col justify-end pb-10 pt-[5.75rem] md:justify-center md:pb-16 md:pt-32 lg:pb-20 lg:pt-36">
           <div className="max-w-[46rem]" key={current.id}>
             <h1
               className={cn(
@@ -130,7 +131,7 @@ export function Hero() {
               </ul>
               <div className="relative mt-10 hidden h-[150px] w-[min(100%,340px)] overflow-hidden lg:block">
                 <img
-                  src="/images/building.jpg"
+                  src={asset("/images/building.jpg")}
                   alt="株式会社コスギ 社屋"
                   className="img-cover object-[center_52%]"
                   width={720}

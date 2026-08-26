@@ -1,3 +1,5 @@
+import { asset, withBase } from "@/lib/paths";
+
 export const COMPANY = {
   name: "株式会社コスギ",
   nameEn: "COSUGI Co., Ltd.",
@@ -20,62 +22,62 @@ export const COMPANY = {
 };
 
 export const NAV = [
-  { href: "/#strength", label: "コスギの強み" },
-  { href: "/#products", label: "取扱商品" },
-  { href: "/#cases", label: "導入事例" },
-  { href: "/#flow", label: "ご提案の流れ" },
-  { href: "/#company", label: "会社概要" },
+  { href: withBase("/#strength"), label: "コスギの強み" },
+  { href: withBase("/#products"), label: "取扱商品" },
+  { href: withBase("/#cases"), label: "導入事例" },
+  { href: withBase("/#flow"), label: "ご提案の流れ" },
+  { href: withBase("/#company"), label: "会社概要" },
 ] as const;
 
 export const FOOTER_NAV_LEFT = [
-  { href: "/", label: "トップ" },
-  { href: "/#strength", label: "コスギの強み" },
-  { href: "/#products", label: "取扱商品" },
-  { href: "/#cases", label: "導入事例" },
-  { href: "/#flow", label: "ご提案の流れ" },
+  { href: withBase("/"), label: "トップ" },
+  { href: withBase("/#strength"), label: "コスギの強み" },
+  { href: withBase("/#products"), label: "取扱商品" },
+  { href: withBase("/#cases"), label: "導入事例" },
+  { href: withBase("/#flow"), label: "ご提案の流れ" },
 ] as const;
 
 export const FOOTER_NAV_RIGHT = [
-  { href: "/#company", label: "会社概要" },
-  { href: "/#access", label: "アクセス" },
-  { href: "/privacy", label: "プライバシーポリシー" },
+  { href: withBase("/#company"), label: "会社概要" },
+  { href: withBase("/#access"), label: "アクセス" },
+  { href: withBase("/privacy"), label: "プライバシーポリシー" },
 ] as const;
 
 export const PRODUCTS = [
   {
     slug: "work",
     name: "作業服",
-    image: "/images/product-work.jpg",
+    image: asset("/images/product-work.jpg"),
     imageClass: "object-[center_20%]",
   },
   {
     slug: "office",
     name: "事務服",
-    image: "/images/product-office.jpg",
+    image: asset("/images/product-office.jpg"),
     imageClass: "object-center",
   },
   {
     slug: "medical",
     name: "白衣・メディカルウェア",
-    image: "/images/product-medical.jpg",
+    image: asset("/images/product-medical.jpg"),
     imageClass: "object-center",
   },
   {
     slug: "rain",
     name: "雨衣・レインウェア",
-    image: "/images/product-rain.jpg",
+    image: asset("/images/product-rain.jpg"),
     imageClass: "object-center",
   },
   {
     slug: "print",
     name: "Tシャツ・プリント",
-    image: "/images/product-tshirt.jpg",
+    image: asset("/images/product-tshirt.jpg"),
     imageClass: "object-center",
   },
   {
     slug: "safety",
     name: "安全用品・その他",
-    image: "/images/product-safety.jpg",
+    image: asset("/images/product-safety.jpg"),
     imageClass: "object-center",
   },
 ] as const;
@@ -85,21 +87,21 @@ export const STRENGTHS = [
     num: "01",
     title: "提案力",
     body: "現場を知るスタッフが、最適な\nユニフォームをご提案します。",
-    image: "/images/strength-01.jpg",
+    image: asset("/images/strength-01.jpg"),
     imageClass: "object-[center_30%]",
   },
   {
     num: "02",
     title: "商品力",
     body: "作業服から事務服、白衣まで\n幅広い商品を取り揃えています。",
-    image: "/images/strength-02.jpg",
+    image: asset("/images/strength-02.jpg"),
     imageClass: "object-center",
   },
   {
     num: "03",
     title: "加工・カスタマイズ",
     body: "刺繍・プリントなどの加工で、\nオリジナルユニフォームを実現。",
-    image: "/images/strength-03.jpg",
+    image: asset("/images/strength-03.jpg"),
     imageClass: "object-center",
   },
 ] as const;
@@ -109,19 +111,19 @@ export const CASES = [
     slug: "construction",
     title: "建設業",
     body: "動きやすく、耐久性に優れた作業服で\n現場のモチベーションが向上。",
-    image: "/images/case-construction.jpg",
+    image: asset("/images/case-construction.jpg"),
   },
   {
     slug: "medical",
     title: "医療・介護",
     body: "清潔感のある白衣で、\nスタッフの印象もアップ。",
-    image: "/images/case-medical.jpg",
+    image: asset("/images/case-medical.jpg"),
   },
   {
     slug: "factory",
     title: "製造業",
     body: "安全性と機能性を兼ね備えた\nユニフォームで事故を防止。",
-    image: "/images/case-factory.jpg",
+    image: asset("/images/case-factory.jpg"),
   },
 ] as const;
 
@@ -190,8 +192,8 @@ export const IMPRESSION_POINTS = [
 export const HERO_SLIDES = [
   {
     id: "main",
-    image: "/images/hero.jpg",
-    imageClass: "object-[62%_18%]",
+    image: asset("/images/hero.jpg"),
+    imageClass: "object-[62%_top]",
     alt: "作業服を着てヘルメットを持つスタッフ",
     tone: "light" as const,
     heading: ["プロの現場を、", "カッコよく支える。"],
@@ -217,8 +219,8 @@ export const HERO_SLIDES = [
   },
   {
     id: "medical",
-    image: "/images/slide-medical.jpg",
-    imageClass: "object-[80%_center]",
+    image: asset("/images/slide-medical.jpg"),
+    imageClass: "object-[75%_top]",
     alt: "清潔感のある白衣を着たスタッフ",
     tone: "light" as const,
     heading: ["「見た目の印象」が、", "信頼と安心をつくる。"],
@@ -228,8 +230,8 @@ export const HERO_SLIDES = [
   },
   {
     id: "office",
-    image: "/images/slide-office.jpg",
-    imageClass: "object-[80%_center]",
+    image: asset("/images/slide-office.jpg"),
+    imageClass: "object-[75%_top]",
     alt: "事務服を着たスタッフ",
     tone: "light" as const,
     heading: ["「見た目の印象」が、", "信頼と安心をつくる。"],
@@ -239,8 +241,8 @@ export const HERO_SLIDES = [
   },
   {
     id: "nurse",
-    image: "/images/slide-nurse.jpg",
-    imageClass: "object-[80%_center]",
+    image: asset("/images/slide-nurse.jpg"),
+    imageClass: "object-[70%_top]",
     alt: "メディカルウェアを着たスタッフ",
     tone: "dark" as const,
     heading: ["「見た目の印象」が、", "信頼と安心をつくる。"],
@@ -250,8 +252,8 @@ export const HERO_SLIDES = [
   },
   {
     id: "work",
-    image: "/images/slide-work.jpg",
-    imageClass: "object-[80%_center]",
+    image: asset("/images/slide-work.jpg"),
+    imageClass: "object-[75%_top]",
     alt: "建設現場で作業服を着たスタッフ",
     tone: "dark" as const,
     heading: ["「見た目の印象」が、", "信頼と安心をつくる。"],
@@ -261,8 +263,8 @@ export const HERO_SLIDES = [
   },
   {
     id: "safety",
-    image: "/images/slide-safety.jpg",
-    imageClass: "object-[80%_center]",
+    image: asset("/images/slide-safety.jpg"),
+    imageClass: "object-[75%_top]",
     alt: "空調服とヘルメットを着用したスタッフ",
     tone: "light" as const,
     heading: ["家族のために、", "今日も安全第一で。"],
