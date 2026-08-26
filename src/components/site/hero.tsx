@@ -3,16 +3,10 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { HERO_SLIDES } from "@/data/site";
 import { asset } from "@/lib/paths";
-import { BuildingIcon, ChevronIcon, HandsIcon, ShirtIcon, SlidePointIcon } from "./icons";
+import { ChevronIcon, SlidePointIcon } from "./icons";
 import { cn } from "@/lib/utils";
 
 const INTERVAL_MS = 5000;
-
-const MAIN_FEATURES = [
-  { icon: BuildingIcon, lines: ["秋田・庄内エリア中心", "約1,000社の取引実績"] },
-  { icon: ShirtIcon, lines: ["豊富な品揃えと", "最適なご提案力"] },
-  { icon: HandsIcon, lines: ["外商部門の", "提案型営業"] },
-] as const;
 
 export function Hero() {
   const [index, setIndex] = useState(0);
@@ -42,7 +36,6 @@ export function Hero() {
   }, []);
 
   const current = HERO_SLIDES[index] ?? HERO_SLIDES[0];
-  const isMain = current.id === "main";
   const fade = reduceMotion.current ? "none" : "opacity 700ms ease";
   const light = current.tone === "light";
 
@@ -68,14 +61,7 @@ export function Hero() {
         else go(index + 1);
       }}
     >
-      <div
-        className={cn(
-          "snap-hero-stage relative overflow-hidden",
-          isMain
-            ? "min-h-[420px] md:min-h-[560px] lg:min-h-[640px]"
-            : "h-[min(78vw,680px)] min-h-[420px] md:min-h-[580px] lg:min-h-[640px]",
-        )}
-      >
+      <div className="snap-hero-stage relative h-[min(86vw,760px)] min-h-[480px] overflow-hidden md:min-h-[620px] lg:min-h-[700px]">
         {HERO_SLIDES.map((item, i) => (
           <img
             key={item.id}
@@ -105,44 +91,36 @@ export function Hero() {
               <br />
               {current.heading[1]}
             </h1>
-            <p
-              className={cn(
-                "hero-lead",
-                light ? "text-navy/85" : "text-paper/95",
-              )}
-            >
-              {current.lead}
-            </p>
+            <p className={cn("hero-lead", light ? "text-navy/85" : "text-paper/95")}>{current.lead}</p>
           </div>
 
-          {isMain ? (
-            <>
-              <ul className="mt-10 grid max-w-[34rem] grid-cols-3 gap-3 md:mt-14 md:gap-6">
-                {MAIN_FEATURES.map((item) => (
-                  <li key={item.lines[0]} className="text-navy">
-                    <item.icon size={34} className="mb-3" />
-                    {item.lines.map((line) => (
-                      <p key={line} className="hero-feature">
-                        {line}
-                      </p>
-                    ))}
-                  </li>
+          <ul className="mt-10 grid max-w-[36rem] grid-cols-3 gap-3 md:mt-14 md:gap-6">
+            {current.features.map((item) => (
+              <li key={item.lines[0]} className={light ? "text-navy" : "text-paper"}>
+                <SlidePointIcon name={item.icon} size={34} className="mb-3" />
+                {item.lines.map((line) => (
+                  <p key={line} className="hero-feature">
+                    {line}
+                  </p>
                 ))}
-              </ul>
-              <div className="relative mt-10 hidden h-[150px] w-[min(100%,340px)] overflow-hidden lg:block">
-                <img
-                  src={asset("/images/building.jpg")}
-                  alt="株式会社コスギ 社屋"
-                  className="img-cover object-[center_52%]"
-                  width={720}
-                  height={316}
-                />
-              </div>
-            </>
+              </li>
+            ))}
+          </ul>
+
+          {current.showBuilding ? (
+            <div className="relative mt-10 hidden h-[150px] w-[min(100%,340px)] overflow-hidden lg:block">
+              <img
+                src={asset("/images/building.jpg")}
+                alt="株式会社コスギ 社屋"
+                className="img-cover object-[center_52%]"
+                width={720}
+                height={316}
+              />
+            </div>
           ) : null}
         </div>
 
-        {isMain ? (
+        {current.banner ? (
           <div
             className="absolute right-0 bottom-0 z-[3] bg-navy py-5 pr-6 pl-10 text-paper md:py-7 md:pr-8 md:pl-14"
             style={{
@@ -151,9 +129,9 @@ export function Hero() {
             }}
           >
             <p className="text-[13.5px] leading-7 font-medium tracking-[0.1em] md:text-[15px] md:leading-8">
-              ワーキングウェアのプロが、
+              {current.banner[0]}
               <br />
-              現場のパフォーマンスを支えます。
+              {current.banner[1]}
             </p>
           </div>
         ) : null}
@@ -191,40 +169,6 @@ export function Hero() {
           ))}
         </div>
       </div>
-
-      {!isMain ? (
-        <div className="snap-hero-bar bg-navy text-paper">
-          <div className="site-wrap grid gap-8 py-8 md:grid-cols-[auto_1fr] md:items-start md:gap-10 md:py-9 lg:grid-cols-[7.5rem_1fr]">
-            {current.barLabel.kind === "script" ? (
-              <p className="point-script leading-none text-yellow">{current.barLabel.text}</p>
-            ) : (
-              <p className="pt-1 text-[15px] font-bold tracking-[0.12em]">
-                <span className="border-b-2 border-yellow pb-1">{current.barLabel.text}</span>
-              </p>
-            )}
-            <ul className="grid gap-6 sm:grid-cols-3 sm:gap-0">
-              {current.points.map((point, pi) => (
-                <li
-                  key={point.title}
-                  className={cn(
-                    "flex gap-3 sm:px-5",
-                    pi > 0 && "sm:border-l sm:border-paper/20",
-                    pi === 0 && "sm:pl-0",
-                  )}
-                >
-                  <SlidePointIcon name={point.icon} size={34} className="mt-0.5 shrink-0 text-paper" />
-                  <div>
-                    <p className="text-[14px] font-bold tracking-[0.06em]">{point.title}</p>
-                    <p className="mt-1.5 whitespace-pre-line text-[12.5px] leading-6 text-paper/75">
-                      {point.body}
-                    </p>
-                  </div>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      ) : null}
     </section>
   );
 }

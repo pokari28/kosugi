@@ -48,7 +48,7 @@ export const PRODUCTS = [
     slug: "work",
     name: "作業服",
     image: asset("/images/product-work.jpg"),
-    imageClass: "object-[center_20%]",
+    imageClass: "object-[center_18%]",
   },
   {
     slug: "office",
@@ -60,13 +60,13 @@ export const PRODUCTS = [
     slug: "medical",
     name: "白衣・メディカルウェア",
     image: asset("/images/product-medical.jpg"),
-    imageClass: "object-center",
+    imageClass: "object-[center_18%]",
   },
   {
     slug: "rain",
     name: "雨衣・レインウェア",
     image: asset("/images/product-rain.jpg"),
-    imageClass: "object-center",
+    imageClass: "object-[center_16%]",
   },
   {
     slug: "print",
@@ -171,24 +171,6 @@ export const CONTACT_CATEGORIES = [
   { value: "other", label: "その他" },
 ] as const;
 
-export const IMPRESSION_POINTS = [
-  {
-    icon: "shirt" as const,
-    title: "清潔感で安心感をプラス",
-    body: "衛生的で清潔感のある印象が、\nお客様からの信頼につながります。",
-  },
-  {
-    icon: "people" as const,
-    title: "スタッフのやる気と一体感を向上",
-    body: "着心地の良いユニフォームが\n働く人のやる気を引き出します。",
-  },
-  {
-    icon: "city" as const,
-    title: "企業のイメージアップにも貢献",
-    body: "統一感のあるユニフォームが\n企業ブランドの価値を高めます。",
-  },
-] as const;
-
 export const HERO_SLIDES = [
   {
     id: "main",
@@ -198,94 +180,44 @@ export const HERO_SLIDES = [
     tone: "light" as const,
     heading: ["プロの現場を、", "カッコよく支える。"],
     lead: "ユニフォームの力で、働く人の誇りと企業の価値を高めます。",
-    barLabel: { kind: "script" as const, text: "Point" },
-    points: [
-      {
-        icon: "building" as const,
-        title: "秋田・庄内エリア中心",
-        body: "約1,000社の取引実績。地域に根ざした提案型営業です。",
-      },
-      {
-        icon: "shirt" as const,
-        title: "豊富な品揃えと提案力",
-        body: "作業服から事務服、白衣まで最適な一着をご提案します。",
-      },
-      {
-        icon: "hands" as const,
-        title: "外商部門の提案型営業",
-        body: "現場を知るスタッフが、課題解決まで伴走します。",
-      },
+    showBuilding: true,
+    banner: ["ワーキングウェアのプロが、", "現場のパフォーマンスを支えます。"],
+    features: [
+      { icon: "building" as const, lines: ["秋田・庄内エリア中心", "約1,000社の取引実績"] },
+      { icon: "shirt" as const, lines: ["豊富な品揃えと", "最適なご提案力"] },
+      { icon: "hands" as const, lines: ["外商部門の", "提案型営業"] },
     ],
-  },
-  {
-    id: "medical",
-    image: asset("/images/slide-medical.jpg"),
-    imageClass: "object-[75%_top]",
-    alt: "清潔感のある白衣を着たスタッフ",
-    tone: "light" as const,
-    heading: ["「見た目の印象」が、", "信頼と安心をつくる。"],
-    lead: "清潔感のあるユニフォームが、スタッフのモチベーションと企業イメージを高めます。",
-    barLabel: { kind: "script" as const, text: "Point" },
-    points: IMPRESSION_POINTS,
-  },
-  {
-    id: "office",
-    image: asset("/images/slide-office.jpg"),
-    imageClass: "object-[75%_top]",
-    alt: "事務服を着たスタッフ",
-    tone: "light" as const,
-    heading: ["「見た目の印象」が、", "信頼と安心をつくる。"],
-    lead: "清潔感のあるユニフォームが、スタッフのモチベーションと企業イメージを高めます。",
-    barLabel: { kind: "script" as const, text: "Point" },
-    points: IMPRESSION_POINTS,
   },
   {
     id: "nurse",
     image: asset("/images/slide-nurse.jpg"),
-    imageClass: "object-[70%_top]",
+    imageClass: "object-[70%_top] max-md:object-[18%_12%]",
     alt: "メディカルウェアを着たスタッフ",
     tone: "dark" as const,
     heading: ["「見た目の印象」が、", "信頼と安心をつくる。"],
     lead: "清潔感のあるユニフォームが、スタッフのモチベーションと企業イメージを高めます。",
-    barLabel: { kind: "script" as const, text: "Point" },
-    points: IMPRESSION_POINTS,
+    showBuilding: false,
+    banner: null,
+    features: [
+      { icon: "shirt" as const, lines: ["清潔感で安心感をプラス", "お客様からの信頼へ"] },
+      { icon: "people" as const, lines: ["スタッフのやる気と", "一体感を向上"] },
+      { icon: "city" as const, lines: ["企業のイメージ", "アップにも貢献"] },
+    ],
   },
   {
     id: "work",
     image: asset("/images/slide-work.jpg"),
-    imageClass: "object-[75%_top]",
+    imageClass: "object-[75%_top] max-md:object-[22%_14%]",
     alt: "建設現場で作業服を着たスタッフ",
     tone: "dark" as const,
     heading: ["「見た目の印象」が、", "信頼と安心をつくる。"],
     lead: "清潔感のあるユニフォームが、スタッフのモチベーションと企業イメージを高めます。",
-    barLabel: { kind: "script" as const, text: "Point" },
-    points: IMPRESSION_POINTS,
-  },
-  {
-    id: "safety",
-    image: asset("/images/slide-safety.jpg"),
-    imageClass: "object-[75%_top]",
-    alt: "空調服とヘルメットを着用したスタッフ",
-    tone: "light" as const,
-    heading: ["家族のために、", "今日も安全第一で。"],
-    lead: "見えないところで支える仕事だからこそ、確かな品質と安全管理を徹底します。一つひとつの現場を大切に、地域の未来をつくっていきます。",
-    barLabel: { kind: "plain" as const, text: "私たちの強み" },
-    points: [
-      {
-        icon: "shield" as const,
-        title: "安全を最優先に",
-        body: "全ての現場で安全管理を徹底し、事故ゼロを目指します。",
-      },
-      {
-        icon: "team" as const,
-        title: "チームワークで高品質を",
-        body: "経験豊富なスタッフが連携し、高品質な施工を実現します。",
-      },
-      {
-        icon: "city" as const,
-        title: "地域とともに未来をつくる",
-        body: "インフラ整備を通じて、安心して暮らせる街づくりに貢献します。",
-      },
+    showBuilding: false,
+    banner: null,
+    features: [
+      { icon: "shirt" as const, lines: ["清潔感で安心感をプラス", "お客様からの信頼へ"] },
+      { icon: "people" as const, lines: ["スタッフのやる気と", "一体感を向上"] },
+      { icon: "city" as const, lines: ["企業のイメージ", "アップにも貢献"] },
     ],
   },
 ] as const;
