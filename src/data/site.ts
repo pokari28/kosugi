@@ -177,7 +177,7 @@ export const HERO_SLIDES = [
     image: asset("/images/hero.jpg"),
     imageClass: "object-[62%_top]",
     alt: "作業服を着てヘルメットを持つスタッフ",
-    tone: "light" as const,
+    tone: "dark" as const,
     heading: ["プロの現場を、", "カッコよく支える。"],
     lead: "ユニフォームの力で、働く人の誇りと企業の価値を高めます。",
     showBuilding: true,
