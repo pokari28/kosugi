@@ -28,16 +28,8 @@ jobs:
       - run: npm install --no-audit --no-fund
 
       - name: Build static site
-        run: |
-          set +e
-          npm run build:pages
-          code=$?
-          set -e
-          if [ -f .output/public/index.html ]; then
-            echo "Static site is ready"
-            exit 0
-          fi
-          exit $code
+        continue-on-error: true
+        run: npm run build:pages
         env:
           GITHUB_PAGES: "true"
           NITRO_PRESET: github_pages
@@ -46,8 +38,9 @@ jobs:
         run: |
           OUT=.output/public
           ls -la "$OUT"
+          test -f "$OUT/index.html"
           touch "$OUT/.nojekyll"
-          if [ -f "$OUT/index.html" ] && [ ! -f "$OUT/404.html" ]; then
+          if [ ! -f "$OUT/404.html" ]; then
             cp "$OUT/index.html" "$OUT/404.html"
           fi
 
