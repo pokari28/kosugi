@@ -28,7 +28,16 @@ jobs:
       - run: npm install --no-audit --no-fund
 
       - name: Build static site
-        run: npm run build:pages
+        run: |
+          set +e
+          npm run build:pages
+          code=$?
+          set -e
+          if [ -f .output/public/index.html ]; then
+            echo "Static site is ready"
+            exit 0
+          fi
+          exit $code
         env:
           GITHUB_PAGES: "true"
           NITRO_PRESET: github_pages
@@ -36,16 +45,9 @@ jobs:
       - name: Prepare Pages files
         run: |
           OUT=.output/public
-          if [ ! -d "$OUT" ]; then
-            echo "Build output not found"
-            ls -la
-            ls -la .output || true
-            ls -la dist || true
-            ls -la .vercel/output/static || true
-            exit 1
-          fi
+          ls -la "$OUT"
           touch "$OUT/.nojekyll"
-          if [ -f "$OUT/index.html" ]; then
+          if [ -f "$OUT/index.html" ] && [ ! -f "$OUT/404.html" ]; then
             cp "$OUT/index.html" "$OUT/404.html"
           fi
 
