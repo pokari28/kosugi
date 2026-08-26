@@ -1,0 +1,38 @@
+{
+  "url": "http://127.0.0.1:8081/",
+  "viewports": {
+    "desktop": {
+      "width": 1280,
+      "height": 800,
+      "status": 200,
+      "title": "株式会社コスギ｜ユニフォーム専門店",
+      "hasCanvas": false,
+      "bodyTextLen": 1494,
+      "bodyTextHash": "30e623414699214c6eaf214a08b7143ef70ef6ea163f834222ff873e03c8adb8",
+      "bodyTextPrefix": "本文へスキップ 株式会社 コスギ コスギの強み 取扱商品 導入事例 ご提案の流れ 会社概要 お問い合わせ プロの現場を、 カッコ",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-built.png"
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "title": "株式会社コスギ｜ユニフォーム専門店",
+      "hasCanvas": false,
+      "bodyTextLen": 1457,
+      "bodyTextHash": "86a3a62cabc1c3b608ce476b64eb690eec91018a008a373a8accb88f26de795b",
+      "bodyTextPrefix": "本文へスキップ 株式会社 コスギ プロの現場を、 カッコよく支える。 ユニフォームの力で、働く人の誇りと企業の価値を高めます。 ",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-built-mobile.png"
+    }
+  },
+  "brandWarnings": [],
+  "authWarnings": [],
+  "verdictFile": "/workspace/screenshots/app-builder-built.json",
+  "divergesFromBaseline": false,
+  "baselineReasons": []
+}
