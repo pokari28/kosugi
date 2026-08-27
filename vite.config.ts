@@ -177,6 +177,9 @@ export default defineConfig(({ command, isPreview }) => ({
               { path: "/kosugi/", prerender: { enabled: true } },
               { path: "/kosugi/contact", prerender: { enabled: true } },
               { path: "/kosugi/privacy", prerender: { enabled: true } },
+              { path: "/kosugi/products", prerender: { enabled: true } },
+              { path: "/kosugi/customize", prerender: { enabled: true } },
+              { path: "/kosugi/cases", prerender: { enabled: true } },
             ],
           }
         : {},

@@ -17,7 +17,7 @@ export function Original() {
             <br />
             デザインから加工までトータルでサポートします。
           </p>
-          <Link to="/contact" search={{ category: "original" }} className="outline-btn-dark mt-8 w-fit">
+          <Link to="/customize" className="outline-btn-dark mt-8 w-fit">
             加工・カスタマイズの詳細
             <Chevron />
           </Link>

@@ -25,7 +25,7 @@ export function Header({ overlay = false }: { overlay?: boolean }) {
     };
   }, [open]);
 
-  const solid = open || (!overlay && scrolled);
+  const solid = open || !overlay || scrolled;
 
   return (
     <header
@@ -46,14 +46,14 @@ export function Header({ overlay = false }: { overlay?: boolean }) {
         </div>
 
         <nav
-          className="ml-auto hidden items-center gap-7 pr-8 xl:gap-9 lg:flex"
+          className="ml-auto hidden items-center gap-5 pr-6 text-[12.5px] xl:gap-8 xl:pr-8 lg:flex"
           aria-label="メインナビゲーション"
         >
           {NAV.map((item) => (
             <a
               key={item.href}
               href={item.href}
-              className="text-[13px] tracking-[0.1em] text-navy transition-opacity hover:opacity-65"
+              className="tracking-[0.1em] text-navy transition-opacity hover:opacity-65"
             >
               {item.label}
             </a>

@@ -11,6 +11,9 @@ const pages = [
   { url: "/kosugi/", file: "index.html" },
   { url: "/kosugi/contact", file: "contact/index.html" },
   { url: "/kosugi/privacy", file: "privacy/index.html" },
+  { url: "/kosugi/products", file: "products/index.html" },
+  { url: "/kosugi/customize", file: "customize/index.html" },
+  { url: "/kosugi/cases", file: "cases/index.html" },
 ];
 
 for (const page of pages) {

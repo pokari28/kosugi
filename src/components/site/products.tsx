@@ -14,10 +14,10 @@ export function Products() {
             <br />
             豊富なラインナップ。
           </p>
-          <a href="#product-grid" className="outline-btn mt-8">
+          <Link to="/products" className="outline-btn mt-8">
             取扱商品一覧
             <Chevron />
-          </a>
+          </Link>
         </div>
 
         <div id="product-grid" className="grid grid-cols-2 gap-x-4 gap-y-7 sm:grid-cols-3 sm:gap-x-5 sm:gap-y-8">

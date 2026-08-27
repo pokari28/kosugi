@@ -14,10 +14,10 @@ export function Cases() {
             <br />
             ご導入いただいています。
           </p>
-          <a href="#case-grid" className="outline-btn mt-8">
+          <Link to="/cases" className="outline-btn mt-8">
             事例一覧を見る
             <Chevron />
-          </a>
+          </Link>
         </div>
 
         <div id="case-grid" className="grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-4">
@@ -39,7 +39,7 @@ export function Cases() {
           ))}
 
           <Link
-            to="/contact"
+            to="/cases"
             className="flex min-h-[180px] flex-col items-start justify-center bg-navy px-7 py-8 text-paper transition-opacity hover:opacity-90 sm:min-h-0"
           >
             <span className="flex items-center gap-3 text-[15px] font-medium tracking-[0.1em]">

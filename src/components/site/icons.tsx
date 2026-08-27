@@ -223,3 +223,22 @@ export function SlidePointIcon({
   const Cmp = map[name];
   return <Cmp className={className} size={size} />;
 }
+
+export function ClipboardIcon({ className, size = 32 }: IconProps) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 32 32" className={className} aria-hidden="true">
+      <rect x="8" y="7" width="16" height="20" rx="1.5" {...stroke} />
+      <path d="M12 7.2V6.2A2.2 2.2 0 0 1 14.2 4h3.6A2.2 2.2 0 0 1 20 6.2v1" {...stroke} />
+      <path d="M12 14h8M12 18h8M12 22h5" {...stroke} />
+    </svg>
+  );
+}
+
+export function BulbIcon({ className, size = 32 }: IconProps) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 32 32" className={className} aria-hidden="true">
+      <path d="M16 5.5a7 7 0 0 0-4.2 12.6c.6.5 1 1.2 1.1 2v.4h6.2v-.4c.1-.8.5-1.5 1.1-2A7 7 0 0 0 16 5.5Z" {...stroke} />
+      <path d="M13.4 23.8h5.2M14.2 26.2h3.6" {...stroke} />
+    </svg>
+  );
+}
