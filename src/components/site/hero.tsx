@@ -2,7 +2,6 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import { HERO_SLIDES } from "@/data/site";
-import { asset } from "@/lib/paths";
 import { ChevronIcon, SlidePointIcon } from "./icons";
 import { cn } from "@/lib/utils";
 
@@ -106,18 +105,6 @@ export function Hero() {
               </li>
             ))}
           </ul>
-
-          {current.showBuilding ? (
-            <div className="relative mt-10 hidden h-[150px] w-[min(100%,340px)] overflow-hidden lg:block">
-              <img
-                src={asset("/images/building.jpg")}
-                alt="株式会社コスギ 社屋"
-                className="img-cover object-[center_52%]"
-                width={720}
-                height={316}
-              />
-            </div>
-          ) : null}
         </div>
 
         {current.banner ? (

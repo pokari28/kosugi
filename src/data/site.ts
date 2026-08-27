@@ -393,7 +393,6 @@ export const HERO_SLIDES = [
     tone: "dark" as "light" | "dark",
     heading: ["プロの現場を、", "カッコよく支える。"],
     lead: "ユニフォームの力で、働く人の誇りと企業の価値を高めます。",
-    showBuilding: true,
     banner: ["ワーキングウェアのプロが、", "現場のパフォーマンスを支えます。"],
     features: [
       { icon: "building" as const, lines: ["秋田・庄内エリア中心", "約1,000社の取引実績"] },
@@ -409,7 +408,6 @@ export const HERO_SLIDES = [
     tone: "dark" as "light" | "dark",
     heading: ["「見た目の印象」が、", "信頼と安心をつくる。"],
     lead: "清潔感のあるユニフォームが、スタッフのモチベーションと企業イメージを高めます。",
-    showBuilding: false,
     banner: null,
     features: [
       { icon: "shirt" as const, lines: ["清潔感で安心感をプラス", "お客様からの信頼へ"] },
@@ -425,7 +423,6 @@ export const HERO_SLIDES = [
     tone: "dark" as "light" | "dark",
     heading: ["「見た目の印象」が、", "信頼と安心をつくる。"],
     lead: "清潔感のあるユニフォームが、スタッフのモチベーションと企業イメージを高めます。",
-    showBuilding: false,
     banner: null,
     features: [
       { icon: "shirt" as const, lines: ["清潔感で安心感をプラス", "お客様からの信頼へ"] },
