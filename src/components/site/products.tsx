@@ -22,17 +22,12 @@ export function Products() {
 
         <div id="product-grid" className="grid grid-cols-2 gap-x-4 gap-y-7 sm:grid-cols-3 sm:gap-x-5 sm:gap-y-8">
           {PRODUCTS.map((item) => (
-            <Link
-              key={item.slug}
-              to="/contact"
-              search={{ category: item.slug }}
-              className="group block"
-            >
+            <article key={item.slug}>
               <div className="aspect-[5/4] overflow-hidden bg-line">
                 <img
                   src={item.image}
                   alt={item.name}
-                  className={`img-cover transition-opacity duration-200 group-hover:opacity-90 ${item.imageClass}`}
+                  className={`img-cover ${item.imageClass}`}
                   width={800}
                   height={640}
                   loading="lazy"
@@ -41,7 +36,7 @@ export function Products() {
               <p className="mt-2.5 text-center text-[13px] font-medium tracking-[0.08em] text-navy md:text-[14px]">
                 {item.name}
               </p>
-            </Link>
+            </article>
           ))}
         </div>
       </div>

@@ -1,10 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { Link } from "@tanstack/react-router";
 import { CASE_FILTERS, CASE_STUDIES } from "@/data/site";
 import { asset } from "@/lib/paths";
-import { Chevron } from "./layout";
 import { PageCta } from "./page-cta";
 import { Breadcrumb, PageHero } from "./page-hero";
 import { cn } from "@/lib/utils";
@@ -65,10 +63,6 @@ export function CasesIndex() {
                 <p className="mt-2 text-[12.5px] leading-6 text-muted">導入ユニフォーム：{item.uniform}</p>
                 <p className="mt-1 text-[12.5px] leading-6 text-muted">背景：{item.background}</p>
                 <p className="mt-1 flex-1 text-[12.5px] leading-6 text-muted">効果：{item.effect}</p>
-                <Link to="/contact" className="outline-btn mt-5 w-fit">
-                  詳しく見る
-                  <Chevron />
-                </Link>
               </article>
             ))}
           </div>

@@ -1,10 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { Link } from "@tanstack/react-router";
 import { PRODUCT_CATEGORIES } from "@/data/site";
 import { asset } from "@/lib/paths";
-import { Chevron } from "./layout";
 import { PageCta } from "./page-cta";
 import { Breadcrumb, PageHero } from "./page-hero";
 import { cn } from "@/lib/utils";
@@ -72,14 +70,6 @@ export function ProductsIndex() {
                 </div>
                 <h3 className="mt-4 text-[15px] font-bold tracking-[0.08em] text-navy">{item.name}</h3>
                 <p className="mt-2 flex-1 text-[13px] leading-7 text-soft">{item.summary}</p>
-                <Link
-                  to="/contact"
-                  search={{ category: item.slug }}
-                  className="outline-btn mt-5 w-fit"
-                >
-                  詳しく見る
-                  <Chevron />
-                </Link>
               </article>
             ))}
           </div>

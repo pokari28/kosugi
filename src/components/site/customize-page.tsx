@@ -1,7 +1,5 @@
-import { Link } from "@tanstack/react-router";
 import { CUSTOMIZE_SERVICES, CUSTOMIZE_STEPS } from "@/data/site";
 import { asset } from "@/lib/paths";
-import { Chevron } from "./layout";
 import { PageCta } from "./page-cta";
 import { Breadcrumb, PageHero } from "./page-hero";
 
@@ -41,10 +39,6 @@ export function CustomizePage() {
                 <p className="mt-2 text-[13px] leading-7 text-soft">{item.lead}</p>
                 <p className="mt-2 text-[12.5px] leading-6 text-muted">向いている用途：{item.suitable}</p>
                 <p className="mt-1 text-[12.5px] leading-6 text-muted">コスギの強み：{item.merit}</p>
-                <Link to="/contact" search={{ category: "original" }} className="outline-btn mt-5 w-fit">
-                  詳しく相談する
-                  <Chevron />
-                </Link>
               </article>
             ))}
           </div>

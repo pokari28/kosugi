@@ -1,5 +1,4 @@
 import { STRENGTHS } from "@/data/site";
-import { Chevron } from "./layout";
 
 export function Strength() {
   return (
@@ -15,10 +14,6 @@ export function Strength() {
             <br />
             豊富な品揃えと提案力で、お客様の課題解決を支えます。
           </p>
-          <a href="#strength-cards" className="outline-btn mt-8">
-            詳しく見る
-            <Chevron />
-          </a>
         </div>
 
         <div id="strength-cards" className="grid grid-cols-1 gap-5 sm:grid-cols-3 sm:gap-4">
