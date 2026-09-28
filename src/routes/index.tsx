@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/site/layout";
 import { Hero } from "@/components/site/hero";
+import { News } from "@/components/site/news";
 import { Strength } from "@/components/site/strength";
 import { Products } from "@/components/site/products";
 import { Original } from "@/components/site/original";
@@ -16,6 +17,7 @@ function Home() {
   return (
     <SiteLayout snap>
       <Hero />
+      <News />
       <Strength />
       <Products />
       <Original />
