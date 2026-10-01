@@ -10,10 +10,19 @@ import {
 
 function InstagramMark() {
   return (
-    <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" className="text-navy">
-      <rect x="3.5" y="3.5" width="17" height="17" rx="4" fill="none" stroke="currentColor" strokeWidth="1.6" />
-      <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" strokeWidth="1.6" />
-      <circle cx="17.2" cy="6.8" r="0.9" fill="currentColor" />
+    <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true">
+      <defs>
+        <radialGradient id="ig-mark" cx="30%" cy="110%" r="130%">
+          <stop offset="0%" stopColor="#feda75" />
+          <stop offset="25%" stopColor="#fa7e1e" />
+          <stop offset="50%" stopColor="#d62976" />
+          <stop offset="75%" stopColor="#962fbf" />
+          <stop offset="100%" stopColor="#4f5bd5" />
+        </radialGradient>
+      </defs>
+      <rect x="2" y="2" width="20" height="20" rx="5" fill="url(#ig-mark)" />
+      <rect x="7" y="7" width="10" height="10" rx="5" fill="none" stroke="#fff" strokeWidth="1.6" />
+      <circle cx="17.2" cy="6.8" r="1" fill="#fff" />
     </svg>
   );
 }
