@@ -17,6 +17,7 @@ const pages = [
   { url: "/kosugi/admin/news", file: "admin/news/index.html" },
   { url: "/kosugi/admin/products", file: "admin/products/index.html" },
   { url: "/kosugi/admin/instagram", file: "admin/instagram/index.html" },
+  { url: "/kosugi/admin/embroidery", file: "admin/embroidery/index.html" },
 ];
 
 for (const page of pages) {

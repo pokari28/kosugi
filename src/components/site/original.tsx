@@ -16,6 +16,8 @@ export function Original() {
             企業のイメージや目的に合わせて、
             <br />
             デザインから加工までトータルでサポートします。
+            <br />
+            社名・ロゴ・個人名などの刺繍にも対応しています。
           </p>
           <Link to="/customize" className="outline-btn-dark mt-8 w-fit">
             加工・カスタマイズの詳細

@@ -183,6 +183,7 @@ export default defineConfig(({ command, isPreview }) => ({
               { path: "/kosugi/admin/news", prerender: { enabled: true } },
               { path: "/kosugi/admin/products", prerender: { enabled: true } },
               { path: "/kosugi/admin/instagram", prerender: { enabled: true } },
+              { path: "/kosugi/admin/embroidery", prerender: { enabled: true } },
             ],
           }
         : {},

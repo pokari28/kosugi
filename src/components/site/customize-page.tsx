@@ -2,6 +2,7 @@ import { CUSTOMIZE_SERVICES, CUSTOMIZE_STEPS } from "@/data/site";
 import { asset } from "@/lib/paths";
 import { PageCta } from "./page-cta";
 import { Breadcrumb, PageHero } from "./page-hero";
+import { Embroidery } from "./embroidery";
 
 export function CustomizePage() {
   return (
@@ -44,6 +45,8 @@ export function CustomizePage() {
           </div>
         </div>
       </section>
+
+      <Embroidery />
 
       <section className="bg-page py-12 md:py-16">
         <div className="site-wrap">

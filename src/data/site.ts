@@ -167,9 +167,9 @@ export const CUSTOMIZE_SERVICES = [
   {
     slug: "embroidery",
     name: "刺繍加工",
-    lead: "高級感のある仕上がりで、企業ロゴやネーム入れに最適です。",
+    lead: "社名・ロゴ・個人名などの刺繍にも対応しています。",
     suitable: "建設・製造・医療など、長く着るユニフォームに。",
-    merit: "耐久性が高く、洗濯を重ねても美しさが残ります。",
+    merit: "糸の色や位置をご相談のうえ、統一感のある仕上がりに対応します。",
     image: asset("/images/original-bag.jpg"),
     imageClass: "object-[center_35%]",
   },
