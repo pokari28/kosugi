@@ -1,8 +1,17 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import { Link } from "@tanstack/react-router";
-import { PRODUCTS } from "@/data/site";
+import { CATALOG_SEED, homeProducts, loadCatalog, type CatalogItem } from "@/lib/catalog";
 import { Chevron } from "./layout";
 
 export function Products() {
+  const [items, setItems] = useState<CatalogItem[]>(homeProducts(CATALOG_SEED));
+
+  useEffect(() => {
+    setItems(homeProducts(loadCatalog()));
+  }, []);
+
   return (
     <section id="products" className="scroll-mt-20 bg-paper pb-16 md:pb-24">
       <div className="site-wrap grid items-start gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.5fr)] lg:gap-14">
@@ -21,7 +30,7 @@ export function Products() {
         </div>
 
         <div id="product-grid" className="grid grid-cols-2 gap-x-4 gap-y-7 sm:grid-cols-3 sm:gap-x-5 sm:gap-y-8">
-          {PRODUCTS.map((item) => (
+          {items.map((item) => (
             <article key={item.slug}>
               <div className="aspect-[5/4] overflow-hidden bg-line">
                 <img

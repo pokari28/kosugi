@@ -40,6 +40,8 @@ cp "$OUT/index.html" "$OUT/404.html"
 [ -f "$OUT/customize/index.html" ] && fix_html "$OUT/customize/index.html"
 [ -f "$OUT/cases/index.html" ] && fix_html "$OUT/cases/index.html"
 [ -f "$OUT/admin/news/index.html" ] && fix_html "$OUT/admin/news/index.html"
+[ -f "$OUT/admin/products/index.html" ] && fix_html "$OUT/admin/products/index.html"
+[ -f "$OUT/admin/instagram/index.html" ] && fix_html "$OUT/admin/instagram/index.html"
 
 touch "$OUT/.nojekyll"
 rm -f "$OUT/cosugi-website.zip" "$OUT/index"

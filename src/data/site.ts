@@ -82,6 +82,12 @@ export const PRODUCTS = [
     image: asset("/images/product-safety.jpg"),
     imageClass: "object-center",
   },
+  {
+    slug: "nobori",
+    name: "のぼり",
+    image: asset("/images/product-nobori.jpg"),
+    imageClass: "object-center",
+  },
 ] as const;
 
 export const PRODUCT_CATEGORIES = [
@@ -146,6 +152,13 @@ export const PRODUCT_CATEGORIES = [
     name: "その他商品",
     summary: "上記以外の各種用品も豊富に取り揃えています。",
     image: asset("/images/cat-other.jpg"),
+    imageClass: "object-center",
+  },
+  {
+    slug: "nobori",
+    name: "のぼり",
+    summary: "工事現場・店舗・イベントで使える業務用のぼり。",
+    image: asset("/images/product-nobori.jpg"),
     imageClass: "object-center",
   },
 ] as const;

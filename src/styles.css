@@ -448,7 +448,8 @@
   }
 
   html.snap-home #product-grid {
-    gap: 10px 8px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px 6px;
   }
 
   html.snap-home #product-grid .aspect-\[5\/4\] {
@@ -610,6 +611,26 @@
   html.snap-home #news li {
     padding-top: 8px;
     padding-bottom: 8px;
+  }
+
+  html.snap-home #instagram {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 68px;
+    padding-bottom: calc(80px + env(safe-area-inset-bottom, 0px));
+  }
+
+  html.snap-home #instagram .site-wrap {
+    width: min(1120px, calc(100% - 28px));
+  }
+
+  html.snap-home #instagram .section-lead {
+    margin-top: 0.35rem;
+  }
+
+  html.snap-home #instagram .ig-row {
+    margin-top: 14px;
   }
 }
 

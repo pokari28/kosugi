@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { createFileRoute, Link } from "@tanstack/react-router";
-import { Logo } from "@/components/site/logo";
+import { createFileRoute } from "@tanstack/react-router";
+import { AdminShell } from "@/components/admin/shell";
 import {
   NEWS_CATEGORIES,
   NEWS_SEED,
@@ -104,24 +104,8 @@ function NewsAdminPage() {
   }
 
   return (
-    <div className="min-h-dvh bg-page text-ink">
-      <header className="bg-navy text-paper">
-        <div className="mx-auto flex w-full max-w-[1080px] items-center justify-between gap-4 px-5 py-4">
-          <div>
-            <Logo variant="white" />
-            <p className="mt-1 text-[13px] tracking-[0.12em]">新着情報 管理画面</p>
-          </div>
-          <Link
-            to="/"
-            className="inline-flex min-h-12 items-center bg-yellow px-5 text-[14px] font-bold tracking-[0.08em] text-navy"
-          >
-            サイトを見る
-          </Link>
-        </div>
-      </header>
-
-      <main className="mx-auto w-full max-w-[1080px] px-5 py-8">
-        <div className="flex flex-wrap items-center justify-between gap-4">
+    <AdminShell>
+      <div className="flex flex-wrap items-center justify-between gap-4">
           <p className="text-[13px] leading-7 text-soft">
             公開中 {publishedNews(items, 99).length}件。トップページには新しい順に3件まで表示されます。
           </p>
@@ -261,7 +245,6 @@ function NewsAdminPage() {
             </tbody>
           </table>
         </div>
-      </main>
 
       {pendingDelete ? (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-navy/40 px-5">
@@ -279,6 +262,6 @@ function NewsAdminPage() {
           </div>
         </div>
       ) : null}
-    </div>
+    </AdminShell>
   );
 }

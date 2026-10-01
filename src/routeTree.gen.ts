@@ -16,7 +16,9 @@ import { Route as CustomizeRouteImport } from './routes/customize'
 import { Route as DownloadRouteImport } from './routes/download'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as ProductsRouteImport } from './routes/products'
+import { Route as AdminInstagramRouteImport } from './routes/admin/instagram'
 import { Route as AdminNewsRouteImport } from './routes/admin/news'
+import { Route as AdminProductsRouteImport } from './routes/admin/products'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -53,9 +55,19 @@ const ProductsRoute = ProductsRouteImport.update({
   path: '/products',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminInstagramRoute = AdminInstagramRouteImport.update({
+  id: '/admin/instagram',
+  path: '/admin/instagram',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AdminNewsRoute = AdminNewsRouteImport.update({
   id: '/admin/news',
   path: '/admin/news',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminProductsRoute = AdminProductsRouteImport.update({
+  id: '/admin/products',
+  path: '/admin/products',
   getParentRoute: () => rootRouteImport,
 } as any)
 
@@ -67,7 +79,9 @@ export interface FileRoutesByFullPath {
   '/download': typeof DownloadRoute
   '/privacy': typeof PrivacyRoute
   '/products': typeof ProductsRoute
+  '/admin/instagram': typeof AdminInstagramRoute
   '/admin/news': typeof AdminNewsRoute
+  '/admin/products': typeof AdminProductsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -77,7 +91,9 @@ export interface FileRoutesByTo {
   '/download': typeof DownloadRoute
   '/privacy': typeof PrivacyRoute
   '/products': typeof ProductsRoute
+  '/admin/instagram': typeof AdminInstagramRoute
   '/admin/news': typeof AdminNewsRoute
+  '/admin/products': typeof AdminProductsRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -88,7 +104,9 @@ export interface FileRoutesById {
   '/download': typeof DownloadRoute
   '/privacy': typeof PrivacyRoute
   '/products': typeof ProductsRoute
+  '/admin/instagram': typeof AdminInstagramRoute
   '/admin/news': typeof AdminNewsRoute
+  '/admin/products': typeof AdminProductsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -100,7 +118,9 @@ export interface FileRouteTypes {
     | '/download'
     | '/privacy'
     | '/products'
+    | '/admin/instagram'
     | '/admin/news'
+    | '/admin/products'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -110,7 +130,9 @@ export interface FileRouteTypes {
     | '/download'
     | '/privacy'
     | '/products'
+    | '/admin/instagram'
     | '/admin/news'
+    | '/admin/products'
   id:
     | '__root__'
     | '/'
@@ -120,7 +142,9 @@ export interface FileRouteTypes {
     | '/download'
     | '/privacy'
     | '/products'
+    | '/admin/instagram'
     | '/admin/news'
+    | '/admin/products'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -131,7 +155,9 @@ export interface RootRouteChildren {
   DownloadRoute: typeof DownloadRoute
   PrivacyRoute: typeof PrivacyRoute
   ProductsRoute: typeof ProductsRoute
+  AdminInstagramRoute: typeof AdminInstagramRoute
   AdminNewsRoute: typeof AdminNewsRoute
+  AdminProductsRoute: typeof AdminProductsRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -185,11 +211,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProductsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admin/instagram': {
+      id: '/admin/instagram'
+      path: '/admin/instagram'
+      fullPath: '/admin/instagram'
+      preLoaderRoute: typeof AdminInstagramRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/admin/news': {
       id: '/admin/news'
       path: '/admin/news'
       fullPath: '/admin/news'
       preLoaderRoute: typeof AdminNewsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/products': {
+      id: '/admin/products'
+      path: '/admin/products'
+      fullPath: '/admin/products'
+      preLoaderRoute: typeof AdminProductsRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
@@ -203,7 +243,9 @@ const rootRouteChildren: RootRouteChildren = {
   DownloadRoute: DownloadRoute,
   PrivacyRoute: PrivacyRoute,
   ProductsRoute: ProductsRoute,
+  AdminInstagramRoute: AdminInstagramRoute,
   AdminNewsRoute: AdminNewsRoute,
+  AdminProductsRoute: AdminProductsRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

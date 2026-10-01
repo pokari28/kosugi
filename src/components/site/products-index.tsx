@@ -1,15 +1,21 @@
 "use client";
 
-import { useState } from "react";
-import { PRODUCT_CATEGORIES } from "@/data/site";
+import { useEffect, useState } from "react";
+import { CATALOG_SEED, loadCatalog, visibleProducts, type CatalogItem } from "@/lib/catalog";
 import { asset } from "@/lib/paths";
 import { PageCta } from "./page-cta";
 import { Breadcrumb, PageHero } from "./page-hero";
 import { cn } from "@/lib/utils";
 
 export function ProductsIndex() {
+  const [catalog, setCatalog] = useState<CatalogItem[]>(visibleProducts(CATALOG_SEED));
   const [filter, setFilter] = useState<string>("all");
-  const items = filter === "all" ? PRODUCT_CATEGORIES : PRODUCT_CATEGORIES.filter((item) => item.slug === filter);
+
+  useEffect(() => {
+    setCatalog(visibleProducts(loadCatalog()));
+  }, []);
+
+  const items = filter === "all" ? catalog : catalog.filter((item) => item.slug === filter);
 
   return (
     <>
@@ -40,7 +46,7 @@ export function ProductsIndex() {
             >
               すべて
             </button>
-            {PRODUCT_CATEGORIES.map((item) => (
+            {catalog.map((item) => (
               <button
                 key={item.slug}
                 type="button"
