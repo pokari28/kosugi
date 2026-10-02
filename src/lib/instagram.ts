@@ -12,8 +12,8 @@ export type InstagramSettings = {
 };
 
 export const INSTAGRAM_DEFAULT: InstagramSettings = {
-  url: "",
-  accountName: "",
+  url: "https://www.instagram.com/cosugiakita/",
+  accountName: "cosugiakita",
   visible: true,
   source: "manual",
 };
@@ -34,8 +34,11 @@ export function loadInstagram(): InstagramSettings {
     if (!raw) return INSTAGRAM_DEFAULT;
     const parsed = JSON.parse(raw) as Partial<InstagramSettings>;
     return {
-      url: typeof parsed.url === "string" ? parsed.url.trim() : "",
-      accountName: typeof parsed.accountName === "string" ? parsed.accountName.trim() : "",
+      url: typeof parsed.url === "string" && parsed.url.trim() ? parsed.url.trim() : INSTAGRAM_DEFAULT.url,
+      accountName:
+        typeof parsed.accountName === "string" && parsed.accountName.trim()
+          ? parsed.accountName.trim()
+          : INSTAGRAM_DEFAULT.accountName,
       visible: parsed.visible !== false,
       source: parsed.source === "api" ? "api" : "manual",
     };

@@ -42,7 +42,9 @@ export function Instagram() {
     <section id="instagram" className="scroll-mt-20 overflow-x-hidden border-b border-line bg-paper py-16 md:py-24">
       <div className="site-wrap min-w-0">
         <div className="flex items-center gap-2">
-          <InstagramMark />
+          <AccountLink href={href} className="inline-flex">
+            <InstagramMark />
+          </AccountLink>
           <p className="en-label">Instagram</p>
         </div>
         <h2 className="section-title mt-3">コスギ公式Instagram</h2>
