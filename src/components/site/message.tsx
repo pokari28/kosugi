@@ -22,7 +22,7 @@ export function Message() {
             <div className="overflow-hidden bg-line aspect-[4/5] md:aspect-[3/4]">
               <img
                 src={asset("/images/president.jpg")}
-                alt="株式会社コスギ 代表"
+                alt="株式会社コスギ 代表取締役社長 斎藤末雄"
                 className="h-full w-full object-cover object-[66%_28%]"
                 width={1500}
                 height={1125}
@@ -40,12 +40,12 @@ export function Message() {
                 <p key={text}>{text}</p>
               ))}
             </div>
-            <p className="mt-8 text-[13.5px] leading-7 tracking-[0.06em] text-navy">
+            <p className="mt-8 text-[13.5px] leading-7 tracking-[0.08em] text-navy">
               株式会社コスギ
               <br />
               代表取締役社長
             </p>
-            <p className="mt-1 text-[12px] tracking-[0.04em] text-muted">氏名は確認後に掲載します。</p>
+            <p className="president-name">斎藤 末雄</p>
           </div>
         </div>
       </div>

@@ -115,11 +115,14 @@
   text-wrap: pretty;
 }
 
-.point-script {
-  font-family: "Great Vibes", "Segoe Script", cursive;
-  font-size: clamp(2rem, 3vw, 2.6rem);
+.president-name {
+  margin-top: 0.35rem;
+  font-family: "Yuji Syuku", "Yu Mincho", "Hiragino Mincho ProN", serif;
+  font-size: clamp(2.7rem, 7vw, 4.5rem);
   font-weight: 400;
-  letter-spacing: 0.02em;
+  line-height: 1.2;
+  letter-spacing: 0.14em;
+  color: var(--color-navy);
 }
 
 .outline-btn {
