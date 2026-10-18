@@ -1,9 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { CASE_FILTERS, CASE_STUDIES } from "@/data/site";
+import { CASE_FILTERS, CASE_STUDIES, INDUSTRY_PROPOSALS } from "@/data/site";
 import { loadExtraCases, visibleExtraCases, type ExtraCase } from "@/lib/cases-extra";
-import { asset } from "@/lib/paths";
 import { PageCta } from "./page-cta";
 import { Breadcrumb, PageHero } from "./page-hero";
 import { cn } from "@/lib/utils";
@@ -44,9 +43,13 @@ export function CasesIndex({ initialIndustry }: { initialIndustry?: (typeof CASE
       <PageHero
         title="事例一覧"
         lead="様々な業種・用途での導入事例をご紹介します"
-        image={asset("/images/case-construction.jpg")}
-        imageAlt="作業服を着用した現場"
-        imageClass="object-center"
+        image={INDUSTRY_PROPOSALS[0].image}
+        imageAlt={INDUSTRY_PROPOSALS[0].alt}
+        slides={INDUSTRY_PROPOSALS.map((item) => ({
+          src: item.image,
+          alt: item.alt,
+          imageClass: item.imageClass,
+        }))}
       />
       <Breadcrumb current="事例一覧" />
 
