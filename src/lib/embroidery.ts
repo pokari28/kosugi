@@ -1,6 +1,6 @@
 import { asset } from "@/lib/paths";
 
-export const EMBROIDERY_STORAGE_KEY = "cosugi-embroidery-demo";
+export const EMBROIDERY_STORAGE_KEY = "cosugi-embroidery-v2";
 
 export type EmbroideryExample = {
   id: string;
@@ -12,24 +12,31 @@ export type EmbroideryExample = {
 
 export const EMBROIDERY_SEED: EmbroideryExample[] = [
   {
-    id: "emb-machine",
-    title: "刺繍機",
-    body: "社名・ロゴ・個人名などの刺繍に対応しています。",
-    image: asset("/images/emb-machine.jpg"),
+    id: "chest",
+    title: "社名・個人名刺繍",
+    body: "胸元など、ご希望の位置に社名や個人名を刺繍できます。",
+    image: asset("/images/embroidery/01_chest_embroidery.jpg"),
     visible: true,
   },
   {
-    id: "emb-chest",
-    title: "社名と個人名",
-    body: "胸元に社名と個人名を刺繍した見本です。",
-    image: asset("/images/emb-chest.jpg"),
+    id: "sleeve",
+    title: "袖のネーム刺繍",
+    body: "袖にも社名や名前、ロゴなどの刺繍をご相談いただけます。",
+    image: asset("/images/embroidery/02_sleeve_embroidery.jpg"),
     visible: true,
   },
   {
-    id: "emb-sleeve",
-    title: "袖のネーム",
-    body: "袖にも名前を刺繍できます。",
-    image: asset("/images/emb-sleeve.jpg"),
+    id: "machine",
+    title: "刺繍加工",
+    body: "社名やロゴなど、さまざまな刺繍加工に対応します。",
+    image: asset("/images/embroidery/03_embroidery_machine.jpg"),
+    visible: true,
+  },
+  {
+    id: "fireworks",
+    title: "デザイン刺繍",
+    body: "文字だけでなく、デザイン性のある刺繍のご相談も承ります。",
+    image: asset("/images/embroidery/04_fireworks_embroidery.jpg"),
     visible: true,
   },
 ];

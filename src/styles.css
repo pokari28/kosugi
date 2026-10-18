@@ -189,6 +189,23 @@
   opacity: 0.88;
 }
 
+.solid-btn-yellow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 13px 28px;
+  background: var(--color-yellow);
+  color: var(--color-navy);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  border-radius: 2px;
+}
+
+.solid-btn-yellow:hover {
+  opacity: 0.88;
+}
+
 .chev {
   width: 18px;
   height: 18px;
