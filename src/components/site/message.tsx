@@ -16,7 +16,6 @@ export function Message() {
       <div className="site-wrap">
         <p className="en-label">MESSAGE</p>
         <h2 className="section-title mt-3">代表挨拶</h2>
-        <p className="mt-2 text-[12px] tracking-[0.06em] text-muted">原稿案（社長確認前）</p>
         <div className="message-layout mt-8 grid items-start gap-8 md:grid-cols-[minmax(220px,0.72fr)_minmax(0,1.28fr)]">
           <figure>
             <div className="overflow-hidden bg-line aspect-[4/5] md:aspect-[3/4]">

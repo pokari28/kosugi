@@ -64,28 +64,49 @@ export function CasesIndex() {
           </div>
 
           <div className="mt-10 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 lg:gap-x-7 lg:gap-y-10">
-            {items.map((item) => (
-              <article key={item.slug} className="flex flex-col bg-paper">
-                <div className="relative aspect-[16/10] overflow-hidden bg-line">
-                  <img
-                    src={item.image}
-                    alt={`${item.client}の導入事例`}
-                    className="img-cover"
-                    width={900}
-                    height={560}
-                    loading="lazy"
-                  />
-                  <span className="absolute bottom-3 left-3 bg-navy px-2.5 py-1 text-[11px] tracking-[0.1em] text-paper">
-                    {item.industryLabel}
-                  </span>
-                </div>
-                <h3 className="mt-4 text-[15px] font-bold tracking-[0.08em] text-navy">{item.client}</h3>
-                <p className="mt-2 text-[13px] leading-7 text-soft">{item.proposal}</p>
-                <p className="mt-2 text-[12.5px] leading-6 text-muted">導入ユニフォーム：{item.uniform}</p>
-                <p className="mt-1 text-[12.5px] leading-6 text-muted">背景：{item.background}</p>
-                <p className="mt-1 flex-1 text-[12.5px] leading-6 text-muted">効果：{item.effect}</p>
-              </article>
-            ))}
+            {items.map((item) => {
+              const proposal = "kind" in item && item.kind === "proposal";
+              const uses = "uses" in item && Array.isArray(item.uses) ? item.uses : [];
+              return (
+                <article key={item.slug} className="flex flex-col bg-paper">
+                  <div className="relative aspect-[16/10] overflow-hidden bg-line">
+                    <img
+                      src={item.image}
+                      alt={
+                        proposal
+                          ? "運輸・物流向けユニフォームのイメージ。実際の納入事例ではありません。"
+                          : `${item.client}の導入事例`
+                      }
+                      className="img-cover"
+                      width={900}
+                      height={560}
+                      loading="lazy"
+                    />
+                    <span className="absolute bottom-3 left-3 bg-navy px-2.5 py-1 text-[11px] tracking-[0.1em] text-paper">
+                      {proposal ? "ご提案例" : item.industryLabel}
+                    </span>
+                  </div>
+                  <h3 className="mt-4 text-[15px] font-bold tracking-[0.08em] text-navy">{item.client}</h3>
+                  <p className="mt-2 text-[13px] leading-7 text-soft">{item.proposal}</p>
+                  {proposal ? (
+                    <p className="mt-2 text-[12px] leading-6 text-muted">
+                      イメージです。実際の顧客への納入事例ではありません。
+                    </p>
+                  ) : (
+                    <p className="mt-2 text-[12.5px] leading-6 text-muted">導入ユニフォーム：{item.uniform}</p>
+                  )}
+                  {uses.length > 0 ? (
+                    <ul className="mt-2 space-y-1 text-[12.5px] leading-6 text-muted">
+                      {uses.map((use) => (
+                        <li key={use}>・{use}</li>
+                      ))}
+                    </ul>
+                  ) : null}
+                  {item.background ? <p className="mt-1 text-[12.5px] leading-6 text-muted">背景：{item.background}</p> : null}
+                  {item.effect ? <p className="mt-1 flex-1 text-[12.5px] leading-6 text-muted">効果：{item.effect}</p> : null}
+                </article>
+              );
+            })}
           </div>
         </div>
       </section>

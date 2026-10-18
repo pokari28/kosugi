@@ -7,9 +7,17 @@ import { PageCta } from "./page-cta";
 import { Breadcrumb, PageHero } from "./page-hero";
 import { cn } from "@/lib/utils";
 
-export function ProductsIndex() {
+const IMAGE_NOTE_SLUGS = new Set(["white-coat", "scrubs", "samue", "security"]);
+
+export function ProductsIndex({ initialCategory }: { initialCategory?: string }) {
   const [catalog, setCatalog] = useState<CatalogItem[]>(visibleProducts(CATALOG_SEED));
-  const [filter, setFilter] = useState<string>("all");
+  const [filter, setFilter] = useState<string>(
+    initialCategory === "towel"
+      ? "other"
+      : initialCategory && CATALOG_SEED.some((item) => item.slug === initialCategory)
+        ? initialCategory
+        : "all",
+  );
 
   useEffect(() => {
     setCatalog(visibleProducts(loadCatalog()));
@@ -76,9 +84,37 @@ export function ProductsIndex() {
                 </div>
                 <h3 className="mt-4 text-[15px] font-bold tracking-[0.08em] text-navy">{item.name}</h3>
                 <p className="mt-2 flex-1 text-[13px] leading-7 text-soft">{item.summary}</p>
+                {IMAGE_NOTE_SLUGS.has(item.slug) ? (
+                  <p className="mt-2 text-[12px] leading-6 text-muted">カテゴリー紹介用のイメージです。</p>
+                ) : null}
               </article>
             ))}
           </div>
+
+          {filter === "all" || filter === "other" ? (
+            <div id="towel" className="mt-14 border-t border-line pt-10">
+              <p className="text-[12px] tracking-[0.14em] text-muted">その他商品</p>
+              <div className="mt-4 grid items-center gap-6 md:grid-cols-[minmax(220px,320px)_minmax(0,1fr)]">
+                <div className="aspect-[5/4] overflow-hidden bg-line">
+                  <img
+                    src={asset("/images/towels.jpg")}
+                    alt="タオル"
+                    className="img-cover object-center"
+                    width={508}
+                    height={366}
+                    loading="lazy"
+                  />
+                </div>
+                <div>
+                  <h3 className="text-[15px] font-bold tracking-[0.08em] text-navy">タオル</h3>
+                  <p className="mt-2 text-[13px] leading-7 text-soft">
+                    企業名やロゴを入れたオリジナルタオルなど、各種タオルのご相談も承ります。
+                  </p>
+                  <p className="mt-2 text-[12px] leading-6 text-muted">カテゴリー紹介用のイメージです。</p>
+                </div>
+              </div>
+            </div>
+          ) : null}
         </div>
       </section>
 

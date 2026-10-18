@@ -10,7 +10,10 @@ const PHOTOS = [
 const ROWS = [
   { label: "会社名", value: COMPANY.name },
   { label: "資本金", value: COMPANY.capital },
-  { label: "所在地", value: `${COMPANY.postal}\n${COMPANY.address}` },
+  {
+    label: "所在地",
+    value: `【本社】\n${COMPANY.postal}\n${COMPANY.address}\n\n【${COMPANY.officeName}】\n${COMPANY.officeAddress}`,
+  },
   { label: "従業員数", value: COMPANY.employees },
   { label: "電話番号", value: COMPANY.phone },
   {

@@ -33,6 +33,7 @@ export function Access() {
             />
           </a>
           <div className="text-[14px] leading-8 tracking-[0.04em] text-ink">
+            <p className="font-bold tracking-[0.08em] text-navy">本社</p>
             <p>{COMPANY.postal}</p>
             <p>{COMPANY.address}</p>
             <p className="mt-6">{COMPANY.accessNote}</p>
@@ -43,7 +44,17 @@ export function Access() {
               rel="noreferrer"
               className="mt-6 inline-block text-[13px] tracking-[0.08em] text-navy underline underline-offset-4"
             >
-              Google マップで開く
+              本社を Google マップで開く
+            </a>
+            <p className="mt-8 font-bold tracking-[0.08em] text-navy">{COMPANY.officeName}</p>
+            <p>{COMPANY.officeAddress}</p>
+            <a
+              href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(COMPANY.officeAddress)}`}
+              target="_blank"
+              rel="noreferrer"
+              className="mt-2 inline-block text-[13px] tracking-[0.08em] text-navy underline underline-offset-4"
+            >
+              大曲営業所を Google マップで開く
             </a>
           </div>
         </div>

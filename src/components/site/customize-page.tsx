@@ -1,5 +1,5 @@
 import { CUSTOMIZE_SERVICES, FLOW } from "@/data/site";
-import { asset } from "@/lib/paths";
+import { asset, withBase } from "@/lib/paths";
 import { PageCta } from "./page-cta";
 import { Breadcrumb, PageHero } from "./page-hero";
 import { Embroidery } from "./embroidery";
@@ -22,6 +22,9 @@ export function CustomizePage() {
           <div className="text-center">
             <h2 className="section-title">加工・カスタマイズメニュー</h2>
             <span className="mx-auto mt-3 block h-[2px] w-8 bg-navy" />
+            <a href={withBase("/#positions")} className="outline-btn mt-8">
+              作業服の加工位置を見る
+            </a>
           </div>
 
           <div className="mt-10 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 lg:gap-x-8 lg:gap-y-12">

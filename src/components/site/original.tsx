@@ -25,38 +25,26 @@ export function Original() {
           </Link>
         </div>
 
-        <div className="grid grid-rows-[minmax(160px,0.85fr)_minmax(180px,1.15fr)] gap-3 py-0 pb-8 lg:py-8">
+        <div className="grid gap-3 py-0 pb-8 lg:py-8">
           <div className="overflow-hidden bg-navy-2">
             <img
               src={asset("/images/emb-machine.jpg")}
               alt="刺繍機"
-              className="img-cover object-[center_42%]"
+              className="img-cover aspect-[16/9] object-[center_42%]"
               width={1500}
               height={1125}
               loading="lazy"
             />
           </div>
-          <div className="grid grid-cols-2 gap-3">
-            <div className="overflow-hidden bg-navy-2">
-              <img
-                src={asset("/images/emb-closeup.jpg")}
-                alt="裾に入れたCOSUGIの刺繍"
-                className="img-cover object-center"
-                width={1536}
-                height={1024}
-                loading="lazy"
-              />
-            </div>
-            <div className="overflow-hidden bg-paper">
-              <img
-                src={asset("/images/original-sketch.jpg")}
-                alt="ユニフォームのデザイン画"
-                className="img-cover object-center"
-                width={700}
-                height={712}
-                loading="lazy"
-              />
-            </div>
+          <div className="overflow-hidden bg-navy-2">
+            <img
+              src={asset("/images/emb-closeup.jpg")}
+              alt="裾に入れたCOSUGIの刺繍"
+              className="img-cover aspect-[16/10] object-center"
+              width={1536}
+              height={1024}
+              loading="lazy"
+            />
           </div>
         </div>
       </div>

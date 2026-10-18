@@ -6,6 +6,7 @@ import { Instagram } from "@/components/site/instagram";
 import { Strength } from "@/components/site/strength";
 import { Products } from "@/components/site/products";
 import { Original } from "@/components/site/original";
+import { ProcessSlider } from "@/components/site/process-slider";
 import { Cases } from "@/components/site/cases";
 import { Flow } from "@/components/site/flow";
 import { Cta } from "@/components/site/cta";
@@ -24,6 +25,7 @@ function Home() {
       <Strength />
       <Products />
       <Original />
+      <ProcessSlider />
       <Cases />
       <Flow />
       <Cta />

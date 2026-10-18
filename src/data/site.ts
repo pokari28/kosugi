@@ -15,6 +15,8 @@ export const COMPANY = {
   employees: "10名",
   accessNote: "JR秋田駅から車で約15分",
   parking: "駐車場完備",
+  officeName: "大曲営業所",
+  officeAddress: "秋田県大仙市富士見町6-7 大曲ハイム1階",
   mapsQuery: "秋田県秋田市外旭川字神宮田36-5 株式会社コスギ",
   mapsUrl:
     "https://www.google.com/maps/search/?api=1&query=" +
@@ -59,10 +61,28 @@ export const PRODUCTS = [
     imageClass: "object-center",
   },
   {
-    slug: "medical",
-    name: "白衣・メディカルウェア",
-    image: asset("/images/product-medical.jpg"),
-    imageClass: "object-[center_18%]",
+    slug: "white-coat",
+    name: "白衣",
+    image: asset("/images/white_coat.jpg"),
+    imageClass: "object-center",
+  },
+  {
+    slug: "scrubs",
+    name: "スクラブ",
+    image: asset("/images/scrubs.jpg"),
+    imageClass: "object-center",
+  },
+  {
+    slug: "samue",
+    name: "作務衣",
+    image: asset("/images/samue.jpg"),
+    imageClass: "object-center",
+  },
+  {
+    slug: "security",
+    name: "警備服",
+    image: asset("/images/security_uniform.jpg"),
+    imageClass: "object-center",
   },
   {
     slug: "rain",
@@ -106,11 +126,32 @@ export const PRODUCT_CATEGORIES = [
     imageClass: "object-center",
   },
   {
-    slug: "medical",
-    name: "白衣・医療ウェア",
-    summary: "医療・介護現場を支える、清潔で機能的なウェア。",
-    image: asset("/images/product-medical.jpg"),
-    imageClass: "object-[center_18%]",
+    slug: "white-coat",
+    name: "白衣",
+    summary: "医療・研究・食品関連など、清潔さが求められる現場に適した白衣。",
+    image: asset("/images/white_coat.jpg"),
+    imageClass: "object-center",
+  },
+  {
+    slug: "scrubs",
+    name: "スクラブ",
+    summary: "医療・介護の現場で求められる、動きやすさと快適性を備えたスクラブ。",
+    image: asset("/images/scrubs.jpg"),
+    imageClass: "object-center",
+  },
+  {
+    slug: "samue",
+    name: "作務衣",
+    summary: "飲食店・旅館・和風店舗などで使用される、落ち着いた雰囲気のユニフォーム。",
+    image: asset("/images/samue.jpg"),
+    imageClass: "object-center",
+  },
+  {
+    slug: "security",
+    name: "警備服",
+    summary: "警備業務や施設管理など、用途に応じた各種警備用ユニフォーム。",
+    image: asset("/images/security_uniform.jpg"),
+    imageClass: "object-center",
   },
   {
     slug: "rain",
@@ -215,8 +256,8 @@ export const CUSTOMIZE_SERVICES = [
     lead: "デザインからご提案し、オリジナルユニフォームを制作します。",
     suitable: "ブランド統一、採用強化、お客様対応の印象づくりに。",
     merit: "聞く・描く・作るまで、一社で伴走できることが強みです。",
-    image: asset("/images/original-sketch.jpg"),
-    imageClass: "object-center",
+    image: asset("/images/jacket-front.jpg"),
+    imageClass: "object-[center_18%]",
   },
 ] as const;
 
@@ -234,6 +275,7 @@ export const CASE_FILTERS = [
   { value: "factory", label: "製造業" },
   { value: "medical", label: "医療・介護" },
   { value: "service", label: "サービス業" },
+  { value: "logistics", label: "運輸・物流" },
   { value: "other", label: "その他" },
 ] as const;
 
@@ -294,6 +336,19 @@ export const CASE_STUDIES = [
     image: asset("/images/slide-work.jpg"),
   },
   {
+    slug: "logistics-proposal",
+    industry: "logistics",
+    industryLabel: "運輸・物流",
+    kind: "proposal",
+    client: "運輸・物流業向けご提案例",
+    uniform: "配送・倉庫作業向けユニフォーム",
+    background: "",
+    proposal: "配送・倉庫・物流現場での作業に適した、動きやすく機能的なユニフォームをご提案します。",
+    effect: "",
+    uses: ["配送スタッフのユニフォーム", "倉庫作業用ウェア", "防寒着", "社名刺繍入り作業服"],
+    image: asset("/images/logistics.jpg"),
+  },
+  {
     slug: "event-1",
     industry: "other",
     industryLabel: "その他",
@@ -349,6 +404,13 @@ export const CASES = [
     body: "安全性と機能性を兼ね備えた\nユニフォームで事故を防止。",
     image: asset("/images/case-factory.jpg"),
   },
+  {
+    slug: "logistics",
+    title: "運輸・物流業向けご提案例",
+    body: "配送・倉庫・物流現場での作業に適した、\n動きやすく機能的なユニフォームをご提案します。",
+    image: asset("/images/logistics.jpg"),
+    note: "イメージです。実際の納入事例ではありません。",
+  },
 ] as const;
 
 export const FLOW = [
@@ -364,12 +426,16 @@ export const FLOW = [
 export const CONTACT_CATEGORIES = [
   { value: "work", label: "作業服" },
   { value: "office", label: "事務服" },
-  { value: "medical", label: "白衣・メディカルウェア" },
+  { value: "white-coat", label: "白衣" },
+  { value: "scrubs", label: "スクラブ" },
+  { value: "samue", label: "作務衣" },
+  { value: "security", label: "警備服" },
   { value: "rain", label: "雨衣・レインウェア" },
   { value: "print", label: "Tシャツ・プリント" },
   { value: "safety", label: "安全用品・保護具" },
   { value: "shoes", label: "シューズ・靴" },
   { value: "winter", label: "防寒着・防寒用品" },
+  { value: "towel", label: "タオル" },
   { value: "original", label: "オリジナルユニフォーム" },
   { value: "other", label: "その他" },
 ] as const;

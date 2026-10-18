@@ -35,6 +35,9 @@ export function Cases() {
               </div>
               <h3 className="mt-3 text-[14px] font-bold tracking-[0.1em] text-navy">{item.title}</h3>
               <p className="mt-1.5 whitespace-pre-line text-[12.5px] leading-6 text-soft">{item.body}</p>
+              {"note" in item && item.note ? (
+                <p className="mt-1 text-[12px] leading-6 text-muted">{item.note}</p>
+              ) : null}
             </article>
           ))}
 
