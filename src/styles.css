@@ -655,8 +655,13 @@
     margin-top: 0.35rem;
   }
 
-  html.snap-home #instagram .ig-row {
+  html.snap-home #instagram .ig-grid {
     margin-top: 14px;
+    gap: 8px;
+  }
+
+  html.snap-home #instagram .ig-grid a {
+    min-height: 0;
   }
 }
 

@@ -59,22 +59,26 @@ export function Instagram() {
           </AccountLink>
         ) : null}
 
-        <div className="ig-row mt-8 flex snap-x snap-mandatory gap-3 overflow-x-auto pb-1 md:grid md:grid-cols-6 md:gap-4 md:overflow-visible md:pb-0">
-          {INSTAGRAM_POSTS.map((post) => (
-            <AccountLink
-              key={post.id}
-              href={href}
-              className="block aspect-square w-[42%] shrink-0 snap-start overflow-hidden bg-line sm:w-[31%] md:w-auto"
-            >
-              <img src={post.image} alt={post.alt} className="img-cover" width={800} height={800} loading="lazy" />
-            </AccountLink>
-          ))}
-        </div>
+        {INSTAGRAM_POSTS.length ? (
+          <div className="ig-grid mt-8 grid grid-cols-2 gap-3 md:grid-cols-3 md:gap-4">
+            {INSTAGRAM_POSTS.map((post) => (
+              <a
+                key={post.id}
+                href={post.permalink}
+                target="_blank"
+                rel="noreferrer"
+                className="block aspect-square overflow-hidden bg-line"
+              >
+                <img src={post.image} alt={post.alt} className="img-cover" width={800} height={800} loading="lazy" />
+              </a>
+            ))}
+          </div>
+        ) : null}
 
         <div className="mt-6">
-          <AccountLink href={href} className="text-[13px] font-medium tracking-[0.12em] text-navy">
-            Instagramで見る →
-          </AccountLink>
+          <a href={href || "https://www.instagram.com/cosugiakita/"} target="_blank" rel="noreferrer" className="outline-btn">
+            Instagramで最新情報を見る
+          </a>
         </div>
       </div>
     </section>

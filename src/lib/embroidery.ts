@@ -32,6 +32,20 @@ export const EMBROIDERY_SEED: EmbroideryExample[] = [
     image: asset("/images/emb-sample-wear.jpg"),
     visible: true,
   },
+  {
+    id: "emb-chest",
+    title: "社名と個人名",
+    body: "胸元に社名と個人名を刺繍した見本です。",
+    image: asset("/images/emb-chest.jpg"),
+    visible: true,
+  },
+  {
+    id: "emb-sleeve",
+    title: "袖のネーム",
+    body: "袖にも名前を刺繍できます。",
+    image: asset("/images/emb-sleeve.jpg"),
+    visible: true,
+  },
 ];
 
 export const EMBROIDERY_TYPES = [

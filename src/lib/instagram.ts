@@ -1,4 +1,11 @@
 import { asset } from "@/lib/paths";
+import postsFile from "@/data/instagram-posts.json";
+const file = postsFile as {
+  accountUrl: string;
+  accountName: string;
+  source: string;
+  posts: InstagramPost[];
+};
 
 export const INSTAGRAM_STORAGE_KEY = "cosugi-instagram-demo";
 
@@ -11,21 +18,26 @@ export type InstagramSettings = {
   source: InstagramSource;
 };
 
-export const INSTAGRAM_DEFAULT: InstagramSettings = {
-  url: "https://www.instagram.com/cosugiakita/",
-  accountName: "cosugiakita",
-  visible: true,
-  source: "manual",
+export type InstagramPost = {
+  id: string;
+  permalink: string;
+  image: string;
+  alt: string;
 };
 
-export const INSTAGRAM_POSTS = [
-  { id: "ig-01", image: asset("/images/ig-01.jpg"), alt: "作業服の展示" },
-  { id: "ig-02", image: asset("/images/ig-02.jpg"), alt: "現場の様子" },
-  { id: "ig-03", image: asset("/images/ig-03.jpg"), alt: "作業服の品揃え" },
-  { id: "ig-04", image: asset("/images/ig-04.jpg"), alt: "のぼりの設置例" },
-  { id: "ig-05", image: asset("/images/ig-05.jpg"), alt: "刺繍加工" },
-  { id: "ig-06", image: asset("/images/ig-06.jpg"), alt: "白衣・医療ウェア" },
-] as const;
+export const INSTAGRAM_DEFAULT: InstagramSettings = {
+  url: file.accountUrl,
+  accountName: file.accountName,
+  visible: true,
+  source: file.source === "api" ? "api" : "manual",
+};
+
+export const INSTAGRAM_POSTS: InstagramPost[] = file.posts.slice(0, 6).map((post) => ({
+  id: post.id,
+  permalink: post.permalink,
+  image: post.image.startsWith("http") ? post.image : asset(post.image),
+  alt: post.alt,
+}));
 
 export function loadInstagram(): InstagramSettings {
   if (typeof window === "undefined") return INSTAGRAM_DEFAULT;

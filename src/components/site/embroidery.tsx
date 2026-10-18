@@ -42,9 +42,7 @@ export function Embroidery() {
               <h2 className="section-title">刺繍の見本</h2>
               <span className="mx-auto mt-3 block h-[2px] w-8 bg-navy" />
             </div>
-            <p className="mx-auto mt-5 max-w-2xl text-center text-[12.5px] leading-7 text-muted">
-              写真を押すと大きく表示します。お客様の社名や個人名が写る写真は、掲載の了承をいただいてから追加します。
-            </p>
+            <p className="mx-auto mt-5 max-w-2xl text-center text-[12.5px] leading-7 text-muted">写真を押すと大きく表示します。</p>
             <div className="mt-8 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8">
               {visible.map((item) => (
                 <article key={item.id}>
