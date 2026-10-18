@@ -170,8 +170,8 @@ export const CUSTOMIZE_SERVICES = [
     lead: "社名・ロゴ・個人名などの刺繍にも対応しています。",
     suitable: "建設・製造・医療など、長く着るユニフォームに。",
     merit: "糸の色や位置をご相談のうえ、統一感のある仕上がりに対応します。",
-    image: asset("/images/original-bag.jpg"),
-    imageClass: "object-[center_35%]",
+    image: asset("/images/emb-sample.jpg"),
+    imageClass: "object-center",
   },
   {
     slug: "print",
@@ -179,8 +179,8 @@ export const CUSTOMIZE_SERVICES = [
     lead: "多色デザインや大きなロゴも美しく再現できます。",
     suitable: "イベントウェア、スタッフTシャツ、チームウェアに。",
     merit: "短納期にも対応し、数量が多い案件もお任せください。",
-    image: asset("/images/original-backs.jpg"),
-    imageClass: "object-[center_20%]",
+    image: asset("/images/uniform-back.jpg"),
+    imageClass: "object-[center_78%]",
   },
   {
     slug: "patch",

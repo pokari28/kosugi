@@ -10,9 +10,9 @@ export function CustomizePage() {
       <PageHero
         title="加工・カスタマイズの詳細"
         lead="企業の想いをカタチにする、オリジナルユニフォーム制作"
-        image={asset("/images/hero-customize.jpg")}
-        imageAlt="工業用刺繍ミシン"
-        imageClass="object-center"
+        image={asset("/images/emb-machine.jpg")}
+        imageAlt="刺繍機"
+        imageClass="object-[center_42%]"
       />
       <Breadcrumb current="加工・カスタマイズの詳細" />
 

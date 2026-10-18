@@ -37,9 +37,9 @@ export function CasesIndex() {
       <PageHero
         title="事例一覧"
         lead="様々な業種・用途での導入事例をご紹介します"
-        image={asset("/images/original-backs.jpg")}
-        imageAlt="オリジナルユニフォームを着用したスタッフ"
-        imageClass="object-[center_20%]"
+        image={asset("/images/uniform-back.jpg")}
+        imageAlt="COSUGIのロゴを入れた作業着"
+        imageClass="object-[center_80%]"
       />
       <Breadcrumb current="事例一覧" />
 

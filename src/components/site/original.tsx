@@ -28,22 +28,22 @@ export function Original() {
         <div className="grid grid-rows-[minmax(160px,0.85fr)_minmax(180px,1.15fr)] gap-3 py-0 pb-8 lg:py-8">
           <div className="overflow-hidden bg-navy-2">
             <img
-              src={asset("/images/original-bag.jpg")}
-              alt="COSUGI 刺繍入りオリジナルバッグ"
-              className="img-cover object-[center_35%]"
-              width={1100}
-              height={470}
+              src={asset("/images/emb-sample-wear.jpg")}
+              alt="作業服に入れた刺繍の書体見本"
+              className="img-cover object-center"
+              width={1500}
+              height={1125}
               loading="lazy"
             />
           </div>
           <div className="grid grid-cols-2 gap-3">
             <div className="overflow-hidden bg-navy-2">
               <img
-                src={asset("/images/original-backs.jpg")}
-                alt="オリジナルユニフォームを着用したスタッフ"
-                className="img-cover object-[center_20%]"
-                width={1448}
-                height={1086}
+                src={asset("/images/uniform-back.jpg")}
+                alt="COSUGIのロゴを入れた作業着"
+                className="img-cover object-[center_78%]"
+                width={1200}
+                height={1600}
                 loading="lazy"
               />
             </div>
