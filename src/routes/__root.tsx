@@ -10,16 +10,30 @@ export const Route = createRootRoute({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1, viewport-fit=cover" },
-      { title: `${APP_NAME}｜ユニフォーム専門店` },
+      { title: `${APP_NAME}｜作業服・ユニフォームの専門商社｜秋田県` },
       {
         name: "description",
         content:
-          "株式会社コスギは秋田・庄内エリアを中心に、作業服・事務服・白衣などワーキングウェアを提案するユニフォーム専門店です。",
+          "株式会社コスギは秋田県の作業服・ユニフォーム専門商社です。作業服、事務服、医療ウェア、安全用品の販売から、社名刺繍・プリント加工まで幅広く対応しています。",
       },
       { name: "theme-color", content: "#002559" },
+      { property: "og:type", content: "website" },
+      { property: "og:title", content: `${APP_NAME}｜作業服・ユニフォームの専門商社｜秋田県` },
+      {
+        property: "og:description",
+        content:
+          "株式会社コスギは秋田県の作業服・ユニフォーム専門商社です。作業服、事務服、医療ウェア、安全用品の販売から、社名刺繍・プリント加工まで幅広く対応しています。",
+      },
+      { property: "og:url", content: "https://pokari28.github.io/kosugi/" },
+      { property: "og:image", content: "https://pokari28.github.io/kosugi/og.jpg" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
-      { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },
+      { rel: "icon", href: "/favicon.ico", sizes: "any" },
+      { rel: "icon", type: "image/png", sizes: "32x32", href: "/favicon-32.png" },
+      { rel: "icon", type: "image/png", sizes: "16x16", href: "/favicon-16.png" },
+      { rel: "apple-touch-icon", sizes: "180x180", href: "/apple-touch-icon.png" },
+      { rel: "manifest", href: "/manifest.webmanifest" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
@@ -27,8 +41,6 @@ export const Route = createRootRoute({
         href: "https://fonts.googleapis.com/css2?family=Great+Vibes&family=Noto+Sans+JP:wght@400;500;700;900&family=Yuji+Syuku&display=swap",
       },
       { rel: "stylesheet", href: appCss },
-      { rel: "manifest", href: "/__grok/manifest.webmanifest" },
-      { rel: "apple-touch-icon", href: "/__grok/icon-180.png" },
     ],
   }),
   component: () => (

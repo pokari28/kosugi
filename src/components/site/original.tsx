@@ -39,11 +39,11 @@ export function Original() {
           <div className="grid grid-cols-2 gap-3">
             <div className="overflow-hidden bg-navy-2">
               <img
-                src={asset("/images/uniform-back.jpg")}
-                alt="COSUGIのロゴを入れた作業着"
-                className="img-cover object-[center_78%]"
-                width={1200}
-                height={1600}
+                src={asset("/images/emb-closeup.jpg")}
+                alt="裾に入れたCOSUGIの刺繍"
+                className="img-cover object-center"
+                width={1536}
+                height={1024}
                 loading="lazy"
               />
             </div>

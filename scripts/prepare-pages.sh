@@ -26,6 +26,17 @@ text = open(path, "rb").read().decode("utf-8", "replace")
 text = re.sub(r"/kosugi/assets/styles-[^\"']+\.css", f"{base}/assets/{css}", text)
 text = re.sub(r"/kosugi/assets/index-[^\"']+\.js", f"{base}/assets/{js}", text)
 text = text.replace('href="/favicon.svg"', f'href="{base}/favicon.svg"')
+for href in (
+    "/favicon.ico",
+    "/favicon-16.png",
+    "/favicon-32.png",
+    "/apple-touch-icon.png",
+    "/icon-192.png",
+    "/icon-512.png",
+    "/manifest.webmanifest",
+    "/og.jpg",
+):
+    text = text.replace(f'href="{href}"', f'href="{base}{href}"')
 text = text.replace('href="/__grok/', f'href="{base}/__grok/')
 open(path, "w", encoding="utf-8").write(text)
 print(f"fixed {path} ({len(text)} bytes)")

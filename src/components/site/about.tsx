@@ -4,7 +4,6 @@ import { Chevron } from "./layout";
 
 const PHOTOS = [
   { src: "/images/building.jpg", alt: "株式会社コスギ 社屋外観", caption: "社屋", fit: "object-center" },
-  { src: "/images/uniform-back.jpg", alt: "COSUGIのロゴを入れた作業着", caption: "着用", fit: "object-[center_70%]" },
   { src: "/images/warehouse.jpg", alt: "ユニフォームの在庫を管理している倉庫", caption: "在庫", fit: "object-center" },
 ] as const;
 
