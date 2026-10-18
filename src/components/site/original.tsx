@@ -28,9 +28,9 @@ export function Original() {
         <div className="grid grid-rows-[minmax(160px,0.85fr)_minmax(180px,1.15fr)] gap-3 py-0 pb-8 lg:py-8">
           <div className="overflow-hidden bg-navy-2">
             <img
-              src={asset("/images/emb-sample-wear.jpg")}
-              alt="作業服に入れた刺繍の書体見本"
-              className="img-cover object-center"
+              src={asset("/images/emb-machine.jpg")}
+              alt="刺繍機"
+              className="img-cover object-[center_42%]"
               width={1500}
               height={1125}
               loading="lazy"

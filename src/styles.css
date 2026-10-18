@@ -198,6 +198,12 @@
   object-fit: cover;
 }
 
+.building-shot {
+  transform: none;
+  filter: none;
+  image-rendering: auto;
+}
+
 .header-cta {
   display: inline-flex;
   align-items: center;
@@ -397,6 +403,7 @@
   html.snap-home #flow,
   html.snap-home #about,
   html.snap-home #company,
+  html.snap-home #message,
   html.snap-home #access {
     padding-block: 68px calc(80px + env(safe-area-inset-bottom, 0px));
   }
@@ -408,6 +415,7 @@
   html.snap-home #flow .site-wrap,
   html.snap-home #about .site-wrap,
   html.snap-home #company .site-wrap,
+  html.snap-home #message .site-wrap,
   html.snap-home #access .site-wrap,
   html.snap-home #contact-cta .site-wrap {
     width: min(1120px, calc(100% - 28px));
@@ -544,7 +552,7 @@
 
   html.snap-home #about .company-photos {
     display: flex;
-    aspect-ratio: 16 / 8;
+    aspect-ratio: 4 / 3;
     grid-template-columns: none;
     gap: 0;
     overflow-x: auto;
@@ -563,6 +571,47 @@
 
   html.snap-home #about .photo-caption {
     display: none;
+  }
+
+  html.snap-home #message .site-wrap {
+    display: flex;
+    height: 100%;
+    min-height: 0;
+    flex-direction: column;
+  }
+
+  html.snap-home #message .message-layout {
+    display: flex;
+    min-height: 0;
+    flex: 1 1 auto;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 8px;
+  }
+
+  html.snap-home #message .message-layout figure {
+    flex: 0 0 auto;
+  }
+
+  html.snap-home #message .message-layout figure > div {
+    max-height: 30dvh;
+    aspect-ratio: 16 / 9;
+  }
+
+  html.snap-home #message .message-copy {
+    min-height: 0;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  html.snap-home #message .message-body {
+    margin-top: 8px;
+    font-size: 13px;
+    line-height: 1.75;
+  }
+
+  html.snap-home #message .message-body p + p {
+    margin-top: 0.6rem;
   }
 
   html.snap-home #contact-cta .site-wrap {

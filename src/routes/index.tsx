@@ -10,6 +10,7 @@ import { Cases } from "@/components/site/cases";
 import { Flow } from "@/components/site/flow";
 import { Cta } from "@/components/site/cta";
 import { About, Company } from "@/components/site/about";
+import { Message } from "@/components/site/message";
 import { Access } from "@/components/site/access";
 
 export const Route = createFileRoute("/")({ component: Home });
@@ -28,6 +29,7 @@ function Home() {
       <Cta />
       <About />
       <Company />
+      <Message />
       <Access />
     </SiteLayout>
   );

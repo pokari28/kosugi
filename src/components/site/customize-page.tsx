@@ -3,6 +3,7 @@ import { asset } from "@/lib/paths";
 import { PageCta } from "./page-cta";
 import { Breadcrumb, PageHero } from "./page-hero";
 import { Embroidery } from "./embroidery";
+import { StitchSample } from "./stitch-sample";
 
 export function CustomizePage() {
   return (
@@ -47,6 +48,7 @@ export function CustomizePage() {
       </section>
 
       <Embroidery />
+      <StitchSample />
 
       <section className="bg-paper py-12 md:py-16">
         <div className="site-wrap">

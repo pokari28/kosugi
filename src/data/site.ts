@@ -170,8 +170,8 @@ export const CUSTOMIZE_SERVICES = [
     lead: "社名・ロゴ・個人名などの刺繍にも対応しています。",
     suitable: "建設・製造・医療など、長く着るユニフォームに。",
     merit: "糸の色や位置をご相談のうえ、統一感のある仕上がりに対応します。",
-    image: asset("/images/emb-sample.jpg"),
-    imageClass: "object-center",
+    image: asset("/images/emb-chest.jpg"),
+    imageClass: "object-[center_45%]",
   },
   {
     slug: "print",

@@ -19,20 +19,6 @@ export const EMBROIDERY_SEED: EmbroideryExample[] = [
     visible: true,
   },
   {
-    id: "emb-sample",
-    title: "書体・サイズ見本",
-    body: "和文・英文の書体と、10mmから20mmなどのサイズを見本で確認できます。",
-    image: asset("/images/emb-sample.jpg"),
-    visible: true,
-  },
-  {
-    id: "emb-sample-wear",
-    title: "見本の着用",
-    body: "作業服に入れたときの文字の大きさや書体の印象を確認できます。",
-    image: asset("/images/emb-sample-wear.jpg"),
-    visible: true,
-  },
-  {
     id: "emb-chest",
     title: "社名と個人名",
     body: "胸元に社名と個人名を刺繍した見本です。",
@@ -63,7 +49,7 @@ export function loadEmbroidery(): EmbroideryExample[] {
     if (!raw) return EMBROIDERY_SEED;
     const parsed: unknown = JSON.parse(raw);
     if (!Array.isArray(parsed)) return EMBROIDERY_SEED;
-    const items = parsed.filter(isExample);
+    const items = parsed.filter(isExample).filter((item) => item.id !== "emb-sample" && item.id !== "emb-sample-wear");
     if (!items.length) return EMBROIDERY_SEED;
     const legacy = items.every((item) => item.id === "emb-company" || item.id === "emb-logo" || item.id === "emb-name");
     return legacy ? EMBROIDERY_SEED : items;

@@ -4,7 +4,6 @@ import { Chevron } from "./layout";
 
 const PHOTOS = [
   { src: "/images/building.jpg", alt: "株式会社コスギ 社屋外観", caption: "社屋", fit: "object-center" },
-  { src: "/images/president.jpg", alt: "株式会社コスギ 代表", caption: "代表", fit: "object-[center_20%]" },
   { src: "/images/uniform-back.jpg", alt: "COSUGIのロゴを入れた作業着", caption: "着用", fit: "object-[center_70%]" },
   { src: "/images/warehouse.jpg", alt: "ユニフォームの在庫を管理している倉庫", caption: "在庫", fit: "object-center" },
 ] as const;
@@ -44,14 +43,15 @@ export function About() {
           <div className="company-photos grid grid-cols-2 gap-2">
             {PHOTOS.map((photo, index) => (
               <figure key={photo.src} className={index === 0 ? "col-span-2" : ""}>
-                <div className={`overflow-hidden bg-line ${index === 0 ? "aspect-[16/10]" : "aspect-[4/3]"}`}>
+                <div className={`overflow-hidden bg-line ${index === 0 ? "aspect-[4/3]" : "aspect-[4/3]"}`}>
                   <img
                     src={asset(photo.src)}
                     alt={photo.alt}
-                    className={`img-cover ${photo.fit}`}
+                    className={`building-shot h-full w-full object-cover ${photo.fit}`}
                     width={1500}
                     height={1125}
-                    loading="lazy"
+                    loading={index === 0 ? "eager" : "lazy"}
+                    decoding="sync"
                   />
                 </div>
                 <figcaption className="photo-caption mt-1.5 text-[12px] tracking-[0.08em] text-muted">{photo.caption}</figcaption>
