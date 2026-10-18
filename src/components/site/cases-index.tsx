@@ -8,13 +8,17 @@ import { PageCta } from "./page-cta";
 import { Breadcrumb, PageHero } from "./page-hero";
 import { cn } from "@/lib/utils";
 
-export function CasesIndex() {
-  const [filter, setFilter] = useState<(typeof CASE_FILTERS)[number]["value"]>("all");
+export function CasesIndex({ initialIndustry }: { initialIndustry?: (typeof CASE_FILTERS)[number]["value"] }) {
+  const [filter, setFilter] = useState<(typeof CASE_FILTERS)[number]["value"]>(initialIndustry ?? "all");
   const [extras, setExtras] = useState<ExtraCase[]>([]);
 
   useEffect(() => {
     setExtras(visibleExtraCases(loadExtraCases()));
   }, []);
+
+  useEffect(() => {
+    if (initialIndustry) setFilter(initialIndustry);
+  }, [initialIndustry]);
 
   const studies = [
     ...CASE_STUDIES,

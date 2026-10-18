@@ -515,28 +515,65 @@
     flex: 1 1 auto;
   }
 
-  html.snap-home #case-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 8px;
+  html.snap-home .hero-mobile-copy {
+    flex: 0 0 auto;
+    padding: 10px 16px 6px;
   }
 
-  html.snap-home #case-grid .aspect-\[16\/10\] {
-    aspect-ratio: 16 / 9;
+  html.snap-home .hero-mobile-copy .hero-title {
+    font-size: 1.2rem;
   }
 
-  html.snap-home #case-grid h3 {
-    margin-top: 6px;
-    font-size: 12px;
+  html.snap-home .hero-mobile-copy .hero-lead {
+    max-width: none;
+    margin-top: 0.35rem;
+    font-size: 12.5px;
+    line-height: 1.65;
   }
 
-  html.snap-home #case-grid p {
+  html.snap-home .hero-mobile-copy ul {
     display: none;
   }
 
-  html.snap-home #case-grid a {
-    min-height: 88px;
-    padding: 12px 14px;
+  html.snap-home #cases {
+    overflow: hidden;
+  }
+
+  html.snap-home #cases .site-wrap {
+    display: flex;
+    height: 100%;
+    min-height: 0;
+    flex-direction: column;
+  }
+
+  html.snap-home #industry-slider {
+    display: flex;
+    min-height: 0;
+    flex: 1 1 auto;
+    flex-direction: column;
+    margin-top: 10px;
+  }
+
+  html.snap-home #industry-slider > div:first-child {
+    display: flex;
+    min-height: 0;
+    flex: 1 1 auto;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  html.snap-home #industry-photo {
+    min-height: 0;
+    flex: 1 1 auto;
+    aspect-ratio: auto;
+  }
+
+  html.snap-home #industry-slider .min-h-\[11\.5rem\] {
+    min-height: 0;
+  }
+
+  html.snap-home #industry-slider .outline-btn {
+    display: none;
   }
 
   html.snap-home #flow ol {

@@ -37,6 +37,35 @@ export function Hero() {
   const current = HERO_SLIDES[index] ?? HERO_SLIDES[0];
   const fade = reduceMotion.current ? "none" : "opacity 700ms ease";
   const light = current.tone === "light";
+  const copyRight = "copySide" in current && current.copySide === "right";
+
+  const copy = (
+    <>
+      <h1
+        className={cn(
+          "hero-title",
+          copyRight ? "md:text-paper md:[text-shadow:0_1px_10px_rgb(0_0_0_/_0.28)]" : light ? "text-navy" : "text-paper [text-shadow:0_1px_10px_rgb(0_0_0_/_0.28)]",
+        )}
+      >
+        {current.heading[0]}
+        <br />
+        {current.heading[1]}
+      </h1>
+      <p className={cn("hero-lead", copyRight ? "md:text-paper/95" : light ? "text-navy/85" : "text-paper/95")}>{current.lead}</p>
+      <ul className="mt-10 grid grid-cols-3 gap-3 md:gap-6">
+        {current.features.map((item) => (
+          <li key={item.lines[0]} className={copyRight ? "text-navy md:text-paper" : light ? "text-navy" : "text-paper"}>
+            <SlidePointIcon name={item.icon} size={34} className="mb-3" />
+            {item.lines.map((line) => (
+              <p key={line} className="hero-feature">
+                {line}
+              </p>
+            ))}
+          </li>
+        ))}
+      </ul>
+    </>
+  );
 
   return (
     <section
@@ -78,33 +107,22 @@ export function Hero() {
           />
         ))}
 
-        <div className="site-wrap relative z-[2] flex h-full flex-col justify-end pb-10 pt-[5.75rem] md:justify-center md:pb-16 md:pt-32 lg:pb-20 lg:pt-36">
-          <div className="max-w-[46rem]" key={current.id}>
-            <h1
-              className={cn(
-                "hero-title",
-                light ? "text-navy" : "text-paper [text-shadow:0_1px_10px_rgb(0_0_0_/_0.28)]",
-              )}
-            >
-              {current.heading[0]}
-              <br />
-              {current.heading[1]}
-            </h1>
-            <p className={cn("hero-lead", light ? "text-navy/85" : "text-paper/95")}>{current.lead}</p>
-          </div>
+        {copyRight ? (
+          <div
+            aria-hidden
+            className="pointer-events-none absolute inset-y-0 right-0 z-[1] hidden w-[min(54%,680px)] bg-gradient-to-l from-navy/50 via-navy/20 to-transparent md:block"
+          />
+        ) : null}
 
-          <ul className="mt-10 grid max-w-[36rem] grid-cols-3 gap-3 md:mt-14 md:gap-6">
-            {current.features.map((item) => (
-              <li key={item.lines[0]} className={light ? "text-navy" : "text-paper"}>
-                <SlidePointIcon name={item.icon} size={34} className="mb-3" />
-                {item.lines.map((line) => (
-                  <p key={line} className="hero-feature">
-                    {line}
-                  </p>
-                ))}
-              </li>
-            ))}
-          </ul>
+        <div
+          className={cn(
+            "site-wrap relative z-[2] flex h-full flex-col justify-end pb-10 pt-[5.75rem] md:justify-center md:pb-16 md:pt-32 lg:pb-20 lg:pt-36",
+            copyRight && "max-md:hidden",
+          )}
+        >
+          <div key={current.id} className={copyRight ? "ml-auto w-full max-w-[24rem] text-left lg:max-w-[28rem]" : "max-w-[46rem]"}>
+            {copy}
+          </div>
         </div>
 
         {current.banner ? (
@@ -156,6 +174,11 @@ export function Hero() {
           ))}
         </div>
       </div>
+      {copyRight ? (
+        <div className="hero-mobile-copy border-t border-line bg-paper px-5 py-4 text-navy md:hidden">
+          <div key={current.id}>{copy}</div>
+        </div>
+      ) : null}
     </section>
   );
 }

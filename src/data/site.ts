@@ -400,6 +400,59 @@ export const CONTACT_CATEGORIES = [
   { value: "other", label: "その他" },
 ] as const;
 
+export const INDUSTRY_PROPOSALS = [
+  {
+    id: "construction",
+    industry: "construction",
+    title: "建設業向けユニフォーム",
+    catch: "現場で働く、その姿を誇りに。",
+    body: "動きやすさ、耐久性、安全性。厳しい現場で働くプロを支える作業服をご提案します。",
+    image: asset("/images/industry-construction.webp"),
+    imageClass: "object-[center_28%]",
+    alt: "建設現場で鉄筋を組む作業員の着用イメージ",
+  },
+  {
+    id: "factory",
+    industry: "factory",
+    title: "製造業向けユニフォーム",
+    catch: "ものづくりの現場に、快適さを。",
+    body: "日々の作業を快適に。機能性と着心地を考えたユニフォームをご提案します。",
+    image: asset("/images/industry-factory.webp"),
+    imageClass: "object-[center_22%]",
+    alt: "工場で精密組立をするスタッフの着用イメージ",
+  },
+  {
+    id: "medical",
+    industry: "medical",
+    title: "医療・介護向けユニフォーム",
+    catch: "働く人の快適さが、安心につながる。",
+    body: "清潔感と動きやすさを大切にした、医療・介護現場のためのユニフォーム。",
+    image: asset("/images/industry-medical.webp"),
+    imageClass: "object-[36%_24%]",
+    alt: "医療現場で働くスタッフの着用イメージ",
+  },
+  {
+    id: "logistics",
+    industry: "logistics",
+    title: "運輸・物流業向けユニフォーム",
+    catch: "動き続ける現場を、支える一着。",
+    body: "配送や倉庫作業など、さまざまな物流現場に適したウェアをご提案します。",
+    image: asset("/images/industry-logistics.webp"),
+    imageClass: "object-[40%_20%]",
+    alt: "倉庫で荷物を運ぶスタッフの着用イメージ",
+  },
+  {
+    id: "service",
+    industry: "service",
+    title: "飲食・サービス業向けユニフォーム",
+    catch: "おもてなしを、装いから。",
+    body: "お店の雰囲気やサービスに合わせた、清潔感と機能性を備えたユニフォームをご提案します。",
+    image: asset("/images/industry-service.webp"),
+    imageClass: "object-[center_24%]",
+    alt: "飲食店で接客するスタッフの着用イメージ",
+  },
+] as const;
+
 export const HERO_SLIDES = [
   {
     id: "main",
@@ -422,8 +475,9 @@ export const HERO_SLIDES = [
     imageClass: "object-[70%_top] max-md:object-[18%_12%]",
     alt: "メディカルウェアを着たスタッフ",
     tone: "dark" as "light" | "dark",
-    heading: ["「見た目の印象」が、", "信頼と安心をつくる。"],
-    lead: "清潔感のあるユニフォームが、スタッフのモチベーションと企業イメージを高めます。",
+    copySide: "right" as const,
+    heading: ["その清潔感が、", "安心につながる。"],
+    lead: "医療・介護の現場に、快適さと信頼を届けるユニフォーム。",
     banner: null,
     features: [
       { icon: "shirt" as const, lines: ["清潔感で安心感をプラス", "お客様からの信頼へ"] },
@@ -437,8 +491,9 @@ export const HERO_SLIDES = [
     imageClass: "object-[75%_top] max-md:object-[22%_14%]",
     alt: "建設現場で作業服を着たスタッフ",
     tone: "dark" as "light" | "dark",
-    heading: ["「見た目の印象」が、", "信頼と安心をつくる。"],
-    lead: "清潔感のあるユニフォームが、スタッフのモチベーションと企業イメージを高めます。",
+    copySide: "right" as const,
+    heading: ["現場で働く、", "その姿を誇りに。"],
+    lead: "動きやすさも、耐久性も。プロの仕事を支える一着を。",
     banner: null,
     features: [
       { icon: "shirt" as const, lines: ["清潔感で安心感をプラス", "お客様からの信頼へ"] },
