@@ -7,6 +7,7 @@ const ADMIN_NAV = [
   { to: "/admin/products", label: "取扱商品" },
   { to: "/admin/instagram", label: "Instagram設定" },
   { to: "/admin/embroidery", label: "刺繍実例" },
+  { to: "/admin/cases", label: "導入事例" },
 ] as const;
 
 export function AdminShell({ children }: { children: React.ReactNode }) {

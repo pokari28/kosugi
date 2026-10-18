@@ -1,7 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { CASE_FILTERS, CASE_STUDIES } from "@/data/site";
+import { loadExtraCases, visibleExtraCases, type ExtraCase } from "@/lib/cases-extra";
 import { asset } from "@/lib/paths";
 import { PageCta } from "./page-cta";
 import { Breadcrumb, PageHero } from "./page-hero";
@@ -9,7 +10,27 @@ import { cn } from "@/lib/utils";
 
 export function CasesIndex() {
   const [filter, setFilter] = useState<(typeof CASE_FILTERS)[number]["value"]>("all");
-  const items = filter === "all" ? CASE_STUDIES : CASE_STUDIES.filter((item) => item.industry === filter);
+  const [extras, setExtras] = useState<ExtraCase[]>([]);
+
+  useEffect(() => {
+    setExtras(visibleExtraCases(loadExtraCases()));
+  }, []);
+
+  const studies = [
+    ...CASE_STUDIES,
+    ...extras.map((item) => ({
+      slug: item.id,
+      industry: item.industry || "other",
+      industryLabel: item.industryLabel || "その他",
+      client: item.client,
+      uniform: item.uniform,
+      background: item.background,
+      proposal: item.proposal,
+      effect: item.effect,
+      image: item.image,
+    })),
+  ];
+  const items = filter === "all" ? studies : studies.filter((item) => item.industry === filter);
 
   return (
     <>

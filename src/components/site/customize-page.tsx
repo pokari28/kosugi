@@ -1,4 +1,4 @@
-import { CUSTOMIZE_SERVICES, CUSTOMIZE_STEPS } from "@/data/site";
+import { CUSTOMIZE_SERVICES, FLOW } from "@/data/site";
 import { asset } from "@/lib/paths";
 import { PageCta } from "./page-cta";
 import { Breadcrumb, PageHero } from "./page-hero";
@@ -48,18 +48,33 @@ export function CustomizePage() {
 
       <Embroidery />
 
+      <section className="bg-paper py-12 md:py-16">
+        <div className="site-wrap">
+          <div className="text-center">
+            <h2 className="section-title">プリント加工</h2>
+            <span className="mx-auto mt-3 block h-[2px] w-8 bg-navy" />
+          </div>
+          <p className="section-lead mx-auto mt-6 max-w-2xl text-center">
+            ロゴや文字のプリントにも対応しています。色数や書体は、ご要望を伺ってご提案します。
+          </p>
+          <p className="mx-auto mt-4 max-w-2xl text-center text-[12.5px] leading-7 text-muted">
+            対応色と、英文・和文の書体見本は、内容を確認してから掲載します。（仮）
+          </p>
+        </div>
+      </section>
+
       <section className="bg-page py-12 md:py-16">
         <div className="site-wrap">
           <div className="text-center">
-            <h2 className="section-title">オリジナル制作の流れ</h2>
+            <h2 className="section-title">ご提案の流れ</h2>
             <span className="mx-auto mt-3 block h-[2px] w-8 bg-navy" />
           </div>
-          <ol className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-5 lg:gap-4">
-            {CUSTOMIZE_STEPS.map((step) => (
+          <ol className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4 lg:gap-4">
+            {FLOW.map((step) => (
               <li key={step.num} className="bg-paper px-5 py-6">
                 <p className="text-[12px] font-bold tracking-[0.16em] text-navy">{step.num}</p>
                 <h3 className="mt-2 text-[14px] font-bold tracking-[0.08em] text-navy">{step.title}</h3>
-                <p className="mt-2 text-[12.5px] leading-6 text-soft">{step.body}</p>
+                <p className="mt-2 whitespace-pre-line text-[12.5px] leading-6 text-soft">{step.body}</p>
               </li>
             ))}
           </ol>

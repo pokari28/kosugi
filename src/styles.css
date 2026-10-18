@@ -513,9 +513,9 @@
 
   html.snap-home #flow ol {
     display: grid;
-    margin-top: 12px;
-    grid-template-columns: 1fr;
-    gap: 4px;
+    margin-top: 10px;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px 10px;
   }
 
   html.snap-home #flow li {
@@ -523,15 +523,45 @@
   }
 
   html.snap-home #flow .size-16 {
-    width: 36px;
-    height: 36px;
+    width: 32px;
+    height: 32px;
+  }
+
+  html.snap-home #flow .size-16 svg {
+    width: 28px;
+    height: 28px;
   }
 
   html.snap-home #flow h3 {
-    font-size: 13px;
+    margin-top: 0;
+    font-size: 12px;
+    line-height: 1.45;
   }
 
   html.snap-home #flow .whitespace-pre-line {
+    display: none;
+  }
+
+  html.snap-home #about .company-photos {
+    display: flex;
+    aspect-ratio: 16 / 8;
+    grid-template-columns: none;
+    gap: 0;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+  }
+
+  html.snap-home #about .company-photos figure {
+    min-width: 100%;
+    scroll-snap-align: start;
+  }
+
+  html.snap-home #about .company-photos figure > div {
+    height: 100%;
+    aspect-ratio: auto;
+  }
+
+  html.snap-home #about .photo-caption {
     display: none;
   }
 
@@ -548,10 +578,6 @@
     min-height: 56px;
     width: 100%;
     padding-block: 12px;
-  }
-
-  html.snap-home #about .aspect-\[16\/10\] {
-    aspect-ratio: 16 / 8;
   }
 
   html.snap-home #about p {

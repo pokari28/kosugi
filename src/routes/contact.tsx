@@ -45,6 +45,7 @@ function ContactPage() {
                 <span className="text-[1.55rem] font-bold tracking-[0.04em]">{COMPANY.phone}</span>
               </a>
               <p className="mt-2 text-[13px] text-soft">受付時間｜{COMPANY.hours}</p>
+              <p className="mt-4 text-[13px] leading-7 text-soft">FAXでもお問い合わせいただけます。番号はお電話でご案内します。</p>
               <p className="mt-6 text-[13px] leading-7 text-soft">
                 {COMPANY.postal}
                 <br />

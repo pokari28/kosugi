@@ -352,36 +352,13 @@ export const CASES = [
 ] as const;
 
 export const FLOW = [
-  {
-    num: "01",
-    title: "お問い合わせ",
-    body: "お電話またはフォームより\nお気軽にご連絡ください。",
-    icon: "mail" as const,
-  },
-  {
-    num: "02",
-    title: "ヒアリング・ご提案",
-    body: "詳細にご要望を伺い、最適な\nユニフォームをご提案します。",
-    icon: "users" as const,
-  },
-  {
-    num: "03",
-    title: "お見積り・サンプル",
-    body: "お見積りとサンプルをご確認\nいただけます。",
-    icon: "shirt" as const,
-  },
-  {
-    num: "04",
-    title: "ご発注・納品",
-    body: "丁寧・迅速に納品まで\nサポートいたします。",
-    icon: "box" as const,
-  },
-  {
-    num: "05",
-    title: "アフターフォロー",
-    body: "納品後も安心のサポートで\n長くお付き合いします。",
-    icon: "hands" as const,
-  },
+  { num: "01", title: "お問い合わせ", body: "お電話・フォームでご連絡ください。\nFAXもご利用いただけます。" },
+  { num: "02", title: "ヒアリング", body: "用途や枚数、ご希望を\nお伺いします。" },
+  { num: "03", title: "サンプルのご用意", body: "実物を見て\nご確認いただけます。" },
+  { num: "04", title: "在庫確認・概算お見積もり", body: "在庫と概算を\nお伝えします。" },
+  { num: "05", title: "刺繍・プリントの確認", body: "加工内容とデザインを\nご提案します。" },
+  { num: "06", title: "最終お見積もり・ご注文", body: "内容が決まってから\nご注文いただきます。" },
+  { num: "07", title: "加工・検品・納品", body: "加工のうえ、検品して\n納品します。" },
 ] as const;
 
 export const CONTACT_CATEGORIES = [

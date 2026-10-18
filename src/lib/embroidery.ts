@@ -12,24 +12,24 @@ export type EmbroideryExample = {
 
 export const EMBROIDERY_SEED: EmbroideryExample[] = [
   {
-    id: "emb-company",
-    title: "社名刺繍",
-    body: "作業服の胸元に社名を刺繍。企業ユニフォームとして統一感のある仕上がりに。",
-    image: asset("/images/emb-company.jpg"),
+    id: "emb-machine",
+    title: "刺繍機",
+    body: "社名・ロゴ・個人名などの刺繍に対応しています。",
+    image: asset("/images/emb-machine.jpg"),
     visible: true,
   },
   {
-    id: "emb-logo",
-    title: "ロゴ刺繍",
-    body: "企業ロゴをユニフォームに刺繍。ブランドイメージに合わせて対応します。",
-    image: asset("/images/emb-logo.jpg"),
+    id: "emb-sample",
+    title: "書体・サイズ見本",
+    body: "和文・英文の書体と、10mmから20mmなどのサイズを見本で確認できます。",
+    image: asset("/images/emb-sample.jpg"),
     visible: true,
   },
   {
-    id: "emb-name",
-    title: "個人名刺繍",
-    body: "スタッフ名・個人名などの刺繍にも対応しています。",
-    image: asset("/images/emb-name.jpg"),
+    id: "emb-sample-wear",
+    title: "見本の着用",
+    body: "作業服に入れたときの文字の大きさや書体の印象を確認できます。",
+    image: asset("/images/emb-sample-wear.jpg"),
     visible: true,
   },
 ];
@@ -50,7 +50,9 @@ export function loadEmbroidery(): EmbroideryExample[] {
     const parsed: unknown = JSON.parse(raw);
     if (!Array.isArray(parsed)) return EMBROIDERY_SEED;
     const items = parsed.filter(isExample);
-    return items.length ? items : EMBROIDERY_SEED;
+    if (!items.length) return EMBROIDERY_SEED;
+    const legacy = items.every((item) => item.id === "emb-company" || item.id === "emb-logo" || item.id === "emb-name");
+    return legacy ? EMBROIDERY_SEED : items;
   } catch {
     return EMBROIDERY_SEED;
   }

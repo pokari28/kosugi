@@ -16,6 +16,7 @@ import { Route as CustomizeRouteImport } from './routes/customize'
 import { Route as DownloadRouteImport } from './routes/download'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as ProductsRouteImport } from './routes/products'
+import { Route as AdminCasesRouteImport } from './routes/admin/cases'
 import { Route as AdminEmbroideryRouteImport } from './routes/admin/embroidery'
 import { Route as AdminInstagramRouteImport } from './routes/admin/instagram'
 import { Route as AdminNewsRouteImport } from './routes/admin/news'
@@ -56,6 +57,11 @@ const ProductsRoute = ProductsRouteImport.update({
   path: '/products',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminCasesRoute = AdminCasesRouteImport.update({
+  id: '/admin/cases',
+  path: '/admin/cases',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AdminEmbroideryRoute = AdminEmbroideryRouteImport.update({
   id: '/admin/embroidery',
   path: '/admin/embroidery',
@@ -85,6 +91,7 @@ export interface FileRoutesByFullPath {
   '/download': typeof DownloadRoute
   '/privacy': typeof PrivacyRoute
   '/products': typeof ProductsRoute
+  '/admin/cases': typeof AdminCasesRoute
   '/admin/embroidery': typeof AdminEmbroideryRoute
   '/admin/instagram': typeof AdminInstagramRoute
   '/admin/news': typeof AdminNewsRoute
@@ -98,6 +105,7 @@ export interface FileRoutesByTo {
   '/download': typeof DownloadRoute
   '/privacy': typeof PrivacyRoute
   '/products': typeof ProductsRoute
+  '/admin/cases': typeof AdminCasesRoute
   '/admin/embroidery': typeof AdminEmbroideryRoute
   '/admin/instagram': typeof AdminInstagramRoute
   '/admin/news': typeof AdminNewsRoute
@@ -112,6 +120,7 @@ export interface FileRoutesById {
   '/download': typeof DownloadRoute
   '/privacy': typeof PrivacyRoute
   '/products': typeof ProductsRoute
+  '/admin/cases': typeof AdminCasesRoute
   '/admin/embroidery': typeof AdminEmbroideryRoute
   '/admin/instagram': typeof AdminInstagramRoute
   '/admin/news': typeof AdminNewsRoute
@@ -127,6 +136,7 @@ export interface FileRouteTypes {
     | '/download'
     | '/privacy'
     | '/products'
+    | '/admin/cases'
     | '/admin/embroidery'
     | '/admin/instagram'
     | '/admin/news'
@@ -140,6 +150,7 @@ export interface FileRouteTypes {
     | '/download'
     | '/privacy'
     | '/products'
+    | '/admin/cases'
     | '/admin/embroidery'
     | '/admin/instagram'
     | '/admin/news'
@@ -153,6 +164,7 @@ export interface FileRouteTypes {
     | '/download'
     | '/privacy'
     | '/products'
+    | '/admin/cases'
     | '/admin/embroidery'
     | '/admin/instagram'
     | '/admin/news'
@@ -167,6 +179,7 @@ export interface RootRouteChildren {
   DownloadRoute: typeof DownloadRoute
   PrivacyRoute: typeof PrivacyRoute
   ProductsRoute: typeof ProductsRoute
+  AdminCasesRoute: typeof AdminCasesRoute
   AdminEmbroideryRoute: typeof AdminEmbroideryRoute
   AdminInstagramRoute: typeof AdminInstagramRoute
   AdminNewsRoute: typeof AdminNewsRoute
@@ -224,6 +237,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProductsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admin/cases': {
+      id: '/admin/cases'
+      path: '/admin/cases'
+      fullPath: '/admin/cases'
+      preLoaderRoute: typeof AdminCasesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/admin/embroidery': {
       id: '/admin/embroidery'
       path: '/admin/embroidery'
@@ -263,6 +283,7 @@ const rootRouteChildren: RootRouteChildren = {
   DownloadRoute: DownloadRoute,
   PrivacyRoute: PrivacyRoute,
   ProductsRoute: ProductsRoute,
+  AdminCasesRoute: AdminCasesRoute,
   AdminEmbroideryRoute: AdminEmbroideryRoute,
   AdminInstagramRoute: AdminInstagramRoute,
   AdminNewsRoute: AdminNewsRoute,
