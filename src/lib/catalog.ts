@@ -1,6 +1,6 @@
-import { PRODUCT_CATEGORIES, PRODUCTS } from "@/data/site";
+import { PRODUCT_CATEGORIES } from "@/data/site";
 
-export const CATALOG_STORAGE_KEY = "cosugi-catalog-demo";
+export const CATALOG_STORAGE_KEY = "cosugi-catalog-v2";
 
 export type CatalogItem = {
   slug: string;
@@ -13,9 +13,7 @@ export type CatalogItem = {
   home: boolean;
 };
 
-const HOME_SLUGS = new Set<string>(PRODUCTS.map((item) => item.slug));
-
-export const CATALOG_SEED: CatalogItem[] = PRODUCT_CATEGORIES.map((item) => ({
+const CATALOG_SEED_BASE: CatalogItem[] = PRODUCT_CATEGORIES.map((item) => ({
   slug: item.slug,
   name: item.name,
   nameEn: item.slug === "nobori" ? "NOBORI" : "",
@@ -23,8 +21,10 @@ export const CATALOG_SEED: CatalogItem[] = PRODUCT_CATEGORIES.map((item) => ({
   image: item.image,
   imageClass: item.imageClass,
   visible: true,
-  home: HOME_SLUGS.has(item.slug),
+  home: item.home,
 }));
+
+export const CATALOG_SEED = CATALOG_SEED_BASE;
 
 type StoredCatalog = Partial<Pick<CatalogItem, "slug" | "name" | "nameEn" | "image" | "visible">>;
 

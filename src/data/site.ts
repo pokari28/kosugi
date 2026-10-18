@@ -47,69 +47,6 @@ export const FOOTER_NAV_RIGHT = [
   { href: withBase("/privacy"), label: "プライバシーポリシー" },
 ] as const;
 
-export const PRODUCTS = [
-  {
-    slug: "work",
-    name: "作業服",
-    image: asset("/images/product-work.jpg"),
-    imageClass: "object-[center_18%]",
-  },
-  {
-    slug: "office",
-    name: "事務服",
-    image: asset("/images/product-office.jpg"),
-    imageClass: "object-center",
-  },
-  {
-    slug: "white-coat",
-    name: "白衣",
-    image: asset("/images/white_coat.jpg"),
-    imageClass: "object-center",
-  },
-  {
-    slug: "scrubs",
-    name: "スクラブ",
-    image: asset("/images/scrubs.jpg"),
-    imageClass: "object-center",
-  },
-  {
-    slug: "samue",
-    name: "作務衣",
-    image: asset("/images/samue.jpg"),
-    imageClass: "object-center",
-  },
-  {
-    slug: "security",
-    name: "警備服",
-    image: asset("/images/security_uniform.jpg"),
-    imageClass: "object-center",
-  },
-  {
-    slug: "rain",
-    name: "雨衣・レインウェア",
-    image: asset("/images/product-rain.jpg"),
-    imageClass: "object-[center_16%]",
-  },
-  {
-    slug: "print",
-    name: "Tシャツ・プリント",
-    image: asset("/images/product-tshirt.jpg"),
-    imageClass: "object-center",
-  },
-  {
-    slug: "safety",
-    name: "安全用品・その他",
-    image: asset("/images/product-safety.jpg"),
-    imageClass: "object-center",
-  },
-  {
-    slug: "nobori",
-    name: "のぼり",
-    image: asset("/images/product-nobori.jpg"),
-    imageClass: "object-center",
-  },
-] as const;
-
 export const PRODUCT_CATEGORIES = [
   {
     slug: "work",
@@ -117,6 +54,7 @@ export const PRODUCT_CATEGORIES = [
     summary: "作業環境に合わせた機能性と動きやすさを追求した作業服。",
     image: asset("/images/product-work.jpg"),
     imageClass: "object-[center_18%]",
+    home: true,
   },
   {
     slug: "office",
@@ -124,6 +62,7 @@ export const PRODUCT_CATEGORIES = [
     summary: "快適性と清潔感を兼ね備えた、オフィス向けユニフォーム。",
     image: asset("/images/product-office.jpg"),
     imageClass: "object-center",
+    home: true,
   },
   {
     slug: "white-coat",
@@ -131,6 +70,7 @@ export const PRODUCT_CATEGORIES = [
     summary: "医療・研究・食品関連など、清潔さが求められる現場に適した白衣。",
     image: asset("/images/white_coat.jpg"),
     imageClass: "object-center",
+    home: true,
   },
   {
     slug: "scrubs",
@@ -138,6 +78,7 @@ export const PRODUCT_CATEGORIES = [
     summary: "医療・介護の現場で求められる、動きやすさと快適性を備えたスクラブ。",
     image: asset("/images/scrubs.jpg"),
     imageClass: "object-center",
+    home: true,
   },
   {
     slug: "samue",
@@ -145,6 +86,7 @@ export const PRODUCT_CATEGORIES = [
     summary: "飲食店・旅館・和風店舗などで使用される、落ち着いた雰囲気のユニフォーム。",
     image: asset("/images/samue.jpg"),
     imageClass: "object-center",
+    home: true,
   },
   {
     slug: "security",
@@ -152,6 +94,7 @@ export const PRODUCT_CATEGORIES = [
     summary: "警備業務や施設管理など、用途に応じた各種警備用ユニフォーム。",
     image: asset("/images/security_uniform.jpg"),
     imageClass: "object-center",
+    home: true,
   },
   {
     slug: "rain",
@@ -159,6 +102,7 @@ export const PRODUCT_CATEGORIES = [
     summary: "悪天候から身を守る、高い防水性と耐久性。",
     image: asset("/images/product-rain.jpg"),
     imageClass: "object-[center_16%]",
+    home: true,
   },
   {
     slug: "print",
@@ -166,6 +110,7 @@ export const PRODUCT_CATEGORIES = [
     summary: "イベントやスタッフウェアに最適な各種ウェア。",
     image: asset("/images/product-tshirt.jpg"),
     imageClass: "object-center",
+    home: true,
   },
   {
     slug: "safety",
@@ -173,6 +118,7 @@ export const PRODUCT_CATEGORIES = [
     summary: "現場の安全を守るための各種保護具・安全用品。",
     image: asset("/images/product-safety.jpg"),
     imageClass: "object-center",
+    home: true,
   },
   {
     slug: "shoes",
@@ -180,6 +126,7 @@ export const PRODUCT_CATEGORIES = [
     summary: "作業現場に適した安全性と快適性を備えた履物。",
     image: asset("/images/cat-shoes.jpg"),
     imageClass: "object-center",
+    home: false,
   },
   {
     slug: "winter",
@@ -187,13 +134,15 @@ export const PRODUCT_CATEGORIES = [
     summary: "寒い季節の各種現場を支える防寒ウェア・防寒用品。",
     image: asset("/images/cat-winter.jpg"),
     imageClass: "object-[center_20%]",
+    home: false,
   },
   {
     slug: "other",
     name: "その他商品",
-    summary: "上記以外の各種用品も豊富に取り揃えています。",
+    summary: "上記以外の各種用品も豊富に取り揃えています。タオルのご相談も、この中で承ります。",
     image: asset("/images/cat-other.jpg"),
     imageClass: "object-center",
+    home: false,
   },
   {
     slug: "nobori",
@@ -201,8 +150,11 @@ export const PRODUCT_CATEGORIES = [
     summary: "工事現場・店舗・イベントで使える業務用のぼり。",
     image: asset("/images/product-nobori.jpg"),
     imageClass: "object-center",
+    home: true,
   },
 ] as const;
+
+export const PRODUCTS = PRODUCT_CATEGORIES.filter((item) => item.home);
 
 export const CUSTOMIZE_SERVICES = [
   {
@@ -385,33 +337,41 @@ export const STRENGTHS = [
   },
 ] as const;
 
-export const CASES = [
+const HOME_CASES = [
   {
-    slug: "construction",
+    slug: "construction-1",
     title: "建設業",
     body: "動きやすく、耐久性に優れた作業服で\n現場のモチベーションが向上。",
-    image: asset("/images/case-construction.jpg"),
   },
   {
-    slug: "medical",
+    slug: "medical-1",
     title: "医療・介護",
     body: "清潔感のある白衣で、\nスタッフの印象もアップ。",
-    image: asset("/images/case-medical.jpg"),
   },
   {
-    slug: "factory",
+    slug: "factory-1",
     title: "製造業",
     body: "安全性と機能性を兼ね備えた\nユニフォームで事故を防止。",
-    image: asset("/images/case-factory.jpg"),
   },
   {
-    slug: "logistics",
+    slug: "logistics-proposal",
     title: "運輸・物流業向けご提案例",
     body: "配送・倉庫・物流現場での作業に適した、\n動きやすく機能的なユニフォームをご提案します。",
-    image: asset("/images/logistics.jpg"),
     note: "イメージです。実際の納入事例ではありません。",
   },
 ] as const;
+
+export const CASES = HOME_CASES.map((item) => {
+  const study = CASE_STUDIES.find((entry) => entry.slug === item.slug);
+  if (!study) throw new Error(`Missing case study: ${item.slug}`);
+  return {
+    slug: item.slug,
+    title: item.title,
+    body: item.body,
+    image: study.image,
+    note: "note" in item ? item.note : "",
+  };
+});
 
 export const FLOW = [
   { num: "01", title: "お問い合わせ", body: "お電話・フォームでご連絡ください。\nFAXもご利用いただけます。" },
