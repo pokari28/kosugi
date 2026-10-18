@@ -17,7 +17,10 @@ export function CasesIndex({ initialIndustry }: { initialIndustry?: (typeof CASE
   }, []);
 
   useEffect(() => {
-    if (initialIndustry) setFilter(initialIndustry);
+    const fromUrl = new URLSearchParams(window.location.search).get("industry");
+    const allowed = new Set<string>(CASE_FILTERS.map((item) => item.value));
+    const next = initialIndustry ?? (fromUrl && allowed.has(fromUrl) ? fromUrl : undefined);
+    if (next) setFilter(next as (typeof CASE_FILTERS)[number]["value"]);
   }, [initialIndustry]);
 
   const studies = [
