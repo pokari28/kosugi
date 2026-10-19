@@ -831,6 +831,101 @@
   }
 }
 
+@media (max-width: 767px) {
+  html.snap-page,
+  html.snap-page body {
+    padding-bottom: 0;
+  }
+
+  html.snap-page {
+    scroll-snap-type: y mandatory;
+  }
+
+  html.snap-page nav[aria-label="パンくずリスト"] {
+    display: none;
+  }
+
+  html.snap-page .snap-screen,
+  html.snap-page footer {
+    box-sizing: border-box;
+    min-height: 100dvh;
+    padding-top: 76px;
+    padding-bottom: calc(88px + env(safe-area-inset-bottom, 0px));
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+  }
+
+  html.snap-page .snap-screen.snap-free {
+    height: auto;
+    max-height: none;
+    overflow: visible;
+    scroll-snap-stop: normal;
+  }
+
+  html.snap-page section.snap-screen.bg-navy {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 0;
+  }
+
+  html.snap-page section.snap-screen.bg-navy > .grid {
+    display: flex;
+    min-height: 0;
+    flex: 1;
+    flex-direction: column;
+  }
+
+  html.snap-page section.snap-screen.bg-navy .relative {
+    flex: 1 1 auto;
+    min-height: 200px;
+  }
+
+  html.snap-page .snap-stack {
+    height: auto;
+    min-height: 0;
+    overflow: visible;
+    scroll-snap-align: none;
+  }
+
+  html.snap-page .snap-stack article,
+  html.snap-page .snap-card,
+  html.snap-page .snap-stack > .site-wrap > ol > li {
+    box-sizing: border-box;
+    min-height: 100dvh;
+    padding-top: 84px;
+    padding-bottom: calc(92px + env(safe-area-inset-bottom, 0px));
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+  }
+
+  html.snap-page .snap-stack .site-wrap > .grid,
+  html.snap-page .snap-stack > .site-wrap > ol {
+    margin-top: 0;
+    gap: 0;
+  }
+
+  html.snap-page .snap-stack article {
+    justify-content: center;
+  }
+
+  html.snap-page .snap-stack .snap-x {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+    overflow: visible;
+  }
+
+  html.snap-page .snap-stack .snap-x > article {
+    width: 100%;
+  }
+}
+
+@media (max-width: 767px) and (prefers-reduced-motion: reduce) {
+  html.snap-page {
+    scroll-snap-type: none;
+  }
+}
+
 @media (max-width: 767px) and (max-height: 700px) {
   html.snap-home .hero-title {
     font-size: clamp(1.55rem, 7vw, 2.2rem);

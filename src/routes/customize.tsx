@@ -11,7 +11,7 @@ export const Route = createFileRoute("/customize")({
 
 function CustomizeRoute() {
   return (
-    <SiteLayout>
+    <SiteLayout snap="page">
       <CustomizePage />
     </SiteLayout>
   );

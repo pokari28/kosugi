@@ -17,9 +17,9 @@ export function CustomizePage() {
       />
       <Breadcrumb current="加工・カスタマイズの詳細" />
 
-      <section className="bg-paper py-12 md:py-16">
+      <section className="snap-stack bg-paper max-md:py-0 md:py-16">
         <div className="site-wrap">
-          <div className="text-center">
+          <div className="snap-card text-center">
             <h2 className="section-title">加工・カスタマイズメニュー</h2>
             <span className="mx-auto mt-3 block h-[2px] w-8 bg-navy" />
             <a href={withBase("/#positions")} className="outline-btn mt-8">
@@ -53,7 +53,7 @@ export function CustomizePage() {
       <Embroidery />
       <StitchSample />
 
-      <section className="bg-paper py-12 md:py-16">
+      <section className="snap-screen bg-paper py-12 md:py-16">
         <div className="site-wrap">
           <div className="text-center">
             <h2 className="section-title">プリント加工</h2>
@@ -68,9 +68,9 @@ export function CustomizePage() {
         </div>
       </section>
 
-      <section className="bg-page py-12 md:py-16">
+      <section className="snap-stack bg-page max-md:py-0 md:py-16">
         <div className="site-wrap">
-          <div className="text-center">
+          <div className="snap-card text-center">
             <h2 className="section-title">ご提案の流れ</h2>
             <span className="mx-auto mt-3 block h-[2px] w-8 bg-navy" />
           </div>

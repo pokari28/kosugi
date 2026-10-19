@@ -32,7 +32,7 @@ export function PageHero({
   }, [frames.length]);
 
   return (
-    <section className="bg-navy text-paper">
+    <section className="snap-screen bg-navy text-paper">
       <div className="grid lg:grid-cols-[minmax(0,0.92fr)_minmax(0,1.18fr)]">
         <div className="flex items-center">
           <div className="site-wrap w-full py-12 lg:ml-auto lg:mr-0 lg:max-w-[540px] lg:py-16 lg:pr-8">

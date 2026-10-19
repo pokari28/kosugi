@@ -25,7 +25,7 @@ export const Route = createFileRoute("/cases")({
 function CasesRoute() {
   const { industry } = Route.useSearch();
   return (
-    <SiteLayout>
+    <SiteLayout snap="page">
       <CasesIndex initialIndustry={industry} />
     </SiteLayout>
   );

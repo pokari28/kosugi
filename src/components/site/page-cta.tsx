@@ -27,7 +27,7 @@ export function PageCta({
   const navy = tone === "navy";
 
   return (
-    <section className={navy ? "bg-paper" : "bg-page"}>
+    <section className={navy ? "snap-screen bg-paper" : "snap-screen bg-page"}>
       <div className="site-wrap py-12 md:py-16">
         <div
           className={

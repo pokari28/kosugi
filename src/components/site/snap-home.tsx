@@ -2,11 +2,20 @@
 
 import { useEffect } from "react";
 
-export function SnapHome() {
+function useHtmlClass(className: string) {
   useEffect(() => {
     const root = document.documentElement;
-    root.classList.add("snap-home");
-    return () => root.classList.remove("snap-home");
-  }, []);
+    root.classList.add(className);
+    return () => root.classList.remove(className);
+  }, [className]);
+}
+
+export function SnapHome() {
+  useHtmlClass("snap-home");
+  return null;
+}
+
+export function SnapPages() {
+  useHtmlClass("snap-page");
   return null;
 }

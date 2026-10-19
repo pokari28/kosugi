@@ -53,9 +53,9 @@ export function CasesIndex({ initialIndustry }: { initialIndustry?: (typeof CASE
       />
       <Breadcrumb current="事例一覧" />
 
-      <section className="bg-paper py-12 md:py-16">
+      <section className="snap-stack bg-paper max-md:py-0 md:py-16">
         <div className="site-wrap">
-          <div className="flex flex-wrap justify-center gap-2">
+          <div className="snap-card flex flex-wrap justify-center gap-2">
             {CASE_FILTERS.map((item) => (
               <button
                 key={item.value}

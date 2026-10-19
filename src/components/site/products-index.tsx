@@ -36,14 +36,13 @@ export function ProductsIndex({ initialCategory }: { initialCategory?: string })
       />
       <Breadcrumb current="取扱商品一覧" />
 
-      <section className="bg-paper py-12 md:py-16">
+      <section className="snap-stack bg-paper max-md:py-0 md:py-16">
         <div className="site-wrap">
-          <div className="text-center">
+          <div className="snap-card text-center">
             <h2 className="section-title">カテゴリから探す</h2>
             <span className="mx-auto mt-3 block h-[2px] w-8 bg-navy" />
-          </div>
 
-          <div className="mt-8 flex flex-wrap justify-center gap-2">
+            <div className="mt-8 flex flex-wrap justify-center gap-2">
             <button
               type="button"
               className={cn(
@@ -67,6 +66,7 @@ export function ProductsIndex({ initialCategory }: { initialCategory?: string })
                 {item.name}
               </button>
             ))}
+          </div>
           </div>
 
           <div className="mt-10 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 lg:gap-x-8 lg:gap-y-12">
@@ -92,7 +92,7 @@ export function ProductsIndex({ initialCategory }: { initialCategory?: string })
           </div>
 
           {filter === "all" || filter === "other" ? (
-            <div id="towel" className="mt-14 border-t border-line pt-10">
+            <div id="towel" className="snap-card mt-14 border-t border-line pt-10">
               <p className="text-[12px] tracking-[0.14em] text-muted">その他商品</p>
               <div className="mt-4 grid items-center gap-6 md:grid-cols-[minmax(220px,320px)_minmax(0,1fr)]">
                 <div className="aspect-[5/4] overflow-hidden bg-line">

@@ -66,7 +66,7 @@ export function StitchSample() {
   const [real, setReal] = useState<RealView | null>(null);
 
   return (
-    <section className="bg-paper py-12 md:py-16">
+    <section className="snap-stack bg-paper max-md:py-0 md:py-16">
       <div className="site-wrap">
         <div className="text-center">
           <h2 className="section-title">刺繍の書体・サイズを選ぶ</h2>
@@ -103,7 +103,7 @@ export function StitchSample() {
           上記は刺繍デザインのイメージです。文字の形や糸色は、実物の見本と完全には一致しない場合があります。選択できる書体や糸色は、下の実物見本でご確認ください。
         </p>
 
-        <div className="mt-14">
+        <div className="snap-card mt-14">
           <h3 className="text-center text-[1.15rem] font-black tracking-[0.08em] text-navy">実物の書体見本</h3>
           <p className="section-lead mx-auto mt-4 max-w-2xl text-center">
             正式な書体・文字サイズ・糸色は、実物の見本写真で確認できます。

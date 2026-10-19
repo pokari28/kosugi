@@ -22,8 +22,8 @@ function ContactPage() {
   const { category } = Route.useSearch();
 
   return (
-    <SiteLayout>
-      <section className="bg-paper">
+    <SiteLayout snap="page">
+      <section className="snap-screen snap-free bg-paper">
         <div className="site-wrap py-12 md:py-16">
           <p className="en-label">CONTACT</p>
           <h1 className="section-title mt-3">お問い合わせ</h1>

@@ -19,7 +19,7 @@ export const Route = createFileRoute("/products")({
 function ProductsRoute() {
   const { category } = Route.useSearch();
   return (
-    <SiteLayout>
+    <SiteLayout snap="page">
       <ProductsIndex initialCategory={category} />
     </SiteLayout>
   );
