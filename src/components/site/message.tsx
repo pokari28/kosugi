@@ -18,13 +18,13 @@ export function Message() {
         <h2 className="section-title mt-3">代表挨拶</h2>
         <div className="message-layout mt-8 grid items-start gap-8 md:grid-cols-[minmax(220px,0.72fr)_minmax(0,1.28fr)]">
           <figure>
-            <div className="overflow-hidden bg-line aspect-[4/5] md:aspect-[3/4]">
+            <div className="overflow-hidden bg-line">
               <img
                 src={asset("/images/president.jpg")}
                 alt="株式会社コスギ 代表取締役社長 斎藤末雄"
-                className="h-full w-full object-cover object-[center_32%]"
-                width={1500}
-                height={1125}
+                className="block h-auto w-full max-w-full object-contain"
+                width={960}
+                height={720}
               />
             </div>
           </figure>

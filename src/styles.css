@@ -654,8 +654,15 @@
   }
 
   html.snap-home #message .message-layout figure > div {
-    max-height: 30dvh;
-    aspect-ratio: 16 / 9;
+    max-height: 32dvh;
+  }
+
+  html.snap-home #message .message-layout figure img {
+    max-height: 32dvh;
+    width: auto;
+    max-width: 100%;
+    margin-inline: auto;
+    object-fit: contain;
   }
 
   html.snap-home #message .message-copy {
