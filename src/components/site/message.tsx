@@ -22,7 +22,7 @@ export function Message() {
               <img
                 src={asset("/images/president.jpg")}
                 alt="株式会社コスギ 代表取締役社長 斎藤末雄"
-                className="h-full w-full object-cover object-[66%_28%]"
+                className="h-full w-full object-cover object-[center_32%]"
                 width={1500}
                 height={1125}
               />
