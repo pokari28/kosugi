@@ -52,8 +52,8 @@ export const PRODUCT_CATEGORIES = [
     slug: "work",
     name: "作業服",
     summary: "作業環境に合わせた機能性と動きやすさを追求した作業服。",
-    image: asset("/images/product-work.jpg"),
-    imageClass: "object-[center_18%]",
+    image: asset("/images/product-workwear.jpg"),
+    imageClass: "object-center",
     home: true,
   },
   {
@@ -101,7 +101,7 @@ export const PRODUCT_CATEGORIES = [
     name: "雨衣・レインウェア",
     summary: "悪天候から身を守る、高い防水性と耐久性。",
     image: asset("/images/product-rain.jpg"),
-    imageClass: "object-[center_16%]",
+    imageClass: "object-center",
     home: true,
   },
   {
@@ -133,7 +133,7 @@ export const PRODUCT_CATEGORIES = [
     name: "防寒着・防寒用品",
     summary: "寒い季節の各種現場を支える防寒ウェア・防寒用品。",
     image: asset("/images/cat-winter.jpg"),
-    imageClass: "object-[center_20%]",
+    imageClass: "object-center",
     home: false,
   },
   {
