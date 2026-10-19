@@ -457,7 +457,7 @@ export const HERO_SLIDES = [
   {
     id: "main",
     image: asset("/images/hero.jpg"),
-    imageClass: "object-[62%_top]",
+    imageClass: "object-[center_8%]",
     alt: "作業服を着てヘルメットを持つスタッフ",
     tone: "dark" as "light" | "dark",
     heading: ["プロの現場を、", "カッコよく支える。"],
@@ -472,7 +472,7 @@ export const HERO_SLIDES = [
   {
     id: "nurse",
     image: asset("/images/slide-nurse.jpg"),
-    imageClass: "object-[70%_top] max-md:object-[18%_12%]",
+    imageClass: "object-[center_30%]",
     alt: "メディカルウェアを着たスタッフ",
     tone: "dark" as "light" | "dark",
     copySide: "right" as const,
@@ -488,7 +488,7 @@ export const HERO_SLIDES = [
   {
     id: "work",
     image: asset("/images/slide-work.jpg"),
-    imageClass: "object-[75%_top] max-md:object-[22%_14%]",
+    imageClass: "object-[32%_center]",
     alt: "建設現場で作業服を着たスタッフ",
     tone: "dark" as "light" | "dark",
     copySide: "right" as const,

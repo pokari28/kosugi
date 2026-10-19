@@ -43,24 +43,47 @@ export function Hero() {
     <>
       <h1
         className={cn(
-          "hero-title",
-          copyRight ? "md:text-paper md:[text-shadow:0_1px_10px_rgb(0_0_0_/_0.28)]" : light ? "text-navy" : "text-paper [text-shadow:0_1px_10px_rgb(0_0_0_/_0.28)]",
+          "hero-title text-navy md:text-paper md:[text-shadow:0_1px_10px_rgb(0_0_0_/_0.28)]",
         )}
       >
         {current.heading[0]}
         <br />
         {current.heading[1]}
       </h1>
-      <p className={cn("hero-lead", copyRight ? "md:text-paper/95" : light ? "text-navy/85" : "text-paper/95")}>{current.lead}</p>
-      <ul className="mt-10 grid grid-cols-3 gap-3 md:gap-6">
+      <p className="hero-lead text-navy md:text-paper/95">
+        {current.id === "main" ? (
+          <>
+            ユニフォームの力で、
+            <br />
+            働く人の誇りと企業の価値を高めます。
+          </>
+        ) : current.id === "nurse" ? (
+          <>
+            医療・介護の現場に、
+            <br />
+            快適さと信頼を届けるユニフォーム。
+          </>
+        ) : current.lead.includes("。") && current.lead.indexOf("。") < current.lead.length - 1 ? (
+          <>
+            {current.lead.slice(0, current.lead.indexOf("。") + 1)}
+            <br />
+            {current.lead.slice(current.lead.indexOf("。") + 1)}
+          </>
+        ) : (
+          current.lead
+        )}
+      </p>
+      <ul className={cn("mt-6 hidden gap-3 md:grid", copyRight ? "grid-cols-1" : "max-w-[20rem] grid-cols-1")}>
         {current.features.map((item) => (
-          <li key={item.lines[0]} className={copyRight ? "text-navy md:text-paper" : light ? "text-navy" : "text-paper"}>
-            <SlidePointIcon name={item.icon} size={34} className="mb-3" />
+          <li key={item.lines[0]} className="flex items-start gap-3 text-navy md:text-paper">
+            <SlidePointIcon name={item.icon} size={28} className="mt-0.5 shrink-0" />
+            <div>
             {item.lines.map((line) => (
               <p key={line} className="hero-feature">
                 {line}
               </p>
             ))}
+            </div>
           </li>
         ))}
       </ul>
@@ -116,21 +139,28 @@ export function Hero() {
 
         <div
           className={cn(
-            "site-wrap relative z-[2] flex h-full flex-col justify-end pb-10 pt-[5.75rem] md:justify-center md:pb-16 md:pt-32 lg:pb-20 lg:pt-36",
-            copyRight && "max-md:hidden",
+            "site-wrap relative z-[2] hidden h-full flex-col pb-16 pt-28 md:flex lg:pb-20 lg:pt-32",
+            copyRight ? "justify-center" : "justify-start",
           )}
         >
-          <div key={current.id} className={copyRight ? "ml-auto w-full max-w-[24rem] text-left lg:max-w-[28rem]" : "max-w-[46rem]"}>
+          <div
+            key={current.id}
+            className={
+              copyRight
+                ? "ml-auto w-full max-w-[380px] text-left"
+                : "mt-2 max-w-[22rem]"
+            }
+          >
             {copy}
           </div>
         </div>
 
         {current.banner ? (
           <div
-            className="absolute right-0 bottom-0 z-[3] bg-navy py-5 pr-6 pl-10 text-paper md:py-7 md:pr-8 md:pl-14"
+            className="absolute right-0 bottom-0 z-[3] hidden bg-navy py-6 pr-8 pl-24 text-paper md:block md:py-7 md:pr-10 md:pl-28"
             style={{
-              left: "42%",
-              clipPath: "polygon(12% 0, 100% 0, 100% 100%, 0 100%)",
+              left: "50%",
+              clipPath: "polygon(7% 0, 100% 0, 100% 100%, 0 100%)",
             }}
           >
             <p className="text-[13.5px] leading-7 font-medium tracking-[0.1em] md:text-[15px] md:leading-8">
@@ -174,11 +204,9 @@ export function Hero() {
           ))}
         </div>
       </div>
-      {copyRight ? (
-        <div className="hero-mobile-copy border-t border-line bg-paper px-5 py-4 text-navy md:hidden">
-          <div key={current.id}>{copy}</div>
-        </div>
-      ) : null}
+      <div className="hero-mobile-copy border-t border-line bg-paper px-5 py-4 text-navy md:hidden">
+        <div key={current.id}>{copy}</div>
+      </div>
     </section>
   );
 }
