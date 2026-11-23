@@ -7,18 +7,26 @@ const prerenderEntry = resolve("node_modules/.nitro/prerender/index.mjs");
 
 const { default: prerender } = await import(pathToFileURL(prerenderEntry).href);
 
+const base = process.env.SITE_BASE ?? "/kosugi";
+
+function pageUrl(path) {
+  if (!base || base === "/") return path;
+  const prefix = base.replace(/\/$/, "");
+  return path === "/" ? `${prefix}/` : `${prefix}${path}`;
+}
+
 const pages = [
-  { url: "/kosugi/", file: "index.html" },
-  { url: "/kosugi/contact", file: "contact/index.html" },
-  { url: "/kosugi/privacy", file: "privacy/index.html" },
-  { url: "/kosugi/products", file: "products/index.html" },
-  { url: "/kosugi/customize", file: "customize/index.html" },
-  { url: "/kosugi/cases", file: "cases/index.html" },
-  { url: "/kosugi/admin/news", file: "admin/news/index.html" },
-  { url: "/kosugi/admin/products", file: "admin/products/index.html" },
-  { url: "/kosugi/admin/instagram", file: "admin/instagram/index.html" },
-  { url: "/kosugi/admin/embroidery", file: "admin/embroidery/index.html" },
-  { url: "/kosugi/admin/cases", file: "admin/cases/index.html" },
+  { url: pageUrl("/"), file: "index.html" },
+  { url: pageUrl("/contact"), file: "contact/index.html" },
+  { url: pageUrl("/privacy"), file: "privacy/index.html" },
+  { url: pageUrl("/products"), file: "products/index.html" },
+  { url: pageUrl("/customize"), file: "customize/index.html" },
+  { url: pageUrl("/cases"), file: "cases/index.html" },
+  { url: pageUrl("/admin/news"), file: "admin/news/index.html" },
+  { url: pageUrl("/admin/products"), file: "admin/products/index.html" },
+  { url: pageUrl("/admin/instagram"), file: "admin/instagram/index.html" },
+  { url: pageUrl("/admin/embroidery"), file: "admin/embroidery/index.html" },
+  { url: pageUrl("/admin/cases"), file: "admin/cases/index.html" },
 ];
 
 for (const page of pages) {

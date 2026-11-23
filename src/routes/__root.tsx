@@ -4,6 +4,7 @@ import { PreviewHostBridge } from "@/components/preview-host-bridge";
 import appCss from "../styles.css?url";
 
 const APP_NAME = "株式会社コスギ";
+const SITE_ORIGIN = (import.meta.env.VITE_SITE_URL || "https://pokari28.github.io/kosugi").replace(/\/$/, "");
 
 export const Route = createRootRoute({
   head: () => ({
@@ -24,11 +25,12 @@ export const Route = createRootRoute({
         content:
           "株式会社コスギは秋田県の作業服・ユニフォーム専門商社です。作業服、事務服、医療ウェア、安全用品の販売から、社名刺繍・プリント加工まで幅広く対応しています。",
       },
-      { property: "og:url", content: "https://pokari28.github.io/kosugi/" },
-      { property: "og:image", content: "https://pokari28.github.io/kosugi/og.jpg" },
+      { property: "og:url", content: `${SITE_ORIGIN}/` },
+      { property: "og:image", content: `${SITE_ORIGIN}/og.jpg` },
       { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
+      { rel: "canonical", href: `${SITE_ORIGIN}/` },
       { rel: "icon", href: "/favicon.ico", sizes: "any" },
       { rel: "icon", type: "image/png", sizes: "32x32", href: "/favicon-32.png" },
       { rel: "icon", type: "image/png", sizes: "16x16", href: "/favicon-16.png" },

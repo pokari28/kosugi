@@ -145,7 +145,17 @@ function authPopupPlugin(): Plugin {
 // `0.0.0.0:8080` is the live-preview contract — don't change host/port.
 // The dev server starts once `src/router.tsx` and `src/routes/` exist — see
 // AGENTS.md § "First scaffold".
-const isGhPages = process.env.GITHUB_PAGES === "true";
+const isFtp = process.env.FTP_STATIC === "true";
+const isGhPages = process.env.GITHUB_PAGES === "true" && !isFtp;
+
+function staticPage(path: string) {
+  if (!isGhPages) return path;
+  return path === "/" ? "/kosugi/" : `/kosugi${path}`;
+}
+
+const staticPages = ["/", "/contact", "/privacy", "/products", "/customize", "/cases", "/admin/news", "/admin/products", "/admin/instagram", "/admin/embroidery", "/admin/cases"].map(
+  (path) => ({ path: staticPage(path), prerender: { enabled: true as const } }),
+);
 
 export default defineConfig(({ command, isPreview }) => ({
   base: isGhPages ? "/kosugi/" : "/",
@@ -170,33 +180,21 @@ export default defineConfig(({ command, isPreview }) => ({
     grokPwaPlugin(),
     tailwindcss(),
     tanstackStart(
-      isGhPages
+      isGhPages || isFtp
         ? {
             spa: { enabled: true },
-            pages: [
-              { path: "/kosugi/", prerender: { enabled: true } },
-              { path: "/kosugi/contact", prerender: { enabled: true } },
-              { path: "/kosugi/privacy", prerender: { enabled: true } },
-              { path: "/kosugi/products", prerender: { enabled: true } },
-              { path: "/kosugi/customize", prerender: { enabled: true } },
-              { path: "/kosugi/cases", prerender: { enabled: true } },
-              { path: "/kosugi/admin/news", prerender: { enabled: true } },
-              { path: "/kosugi/admin/products", prerender: { enabled: true } },
-              { path: "/kosugi/admin/instagram", prerender: { enabled: true } },
-              { path: "/kosugi/admin/embroidery", prerender: { enabled: true } },
-              { path: "/kosugi/admin/cases", prerender: { enabled: true } },
-            ],
+            pages: staticPages,
           }
         : {},
     ),
     ...(command === "build" || isPreview
       ? [
           nitro({
-            preset: isGhPages ? "github_pages" : "vercel",
+            preset: isFtp ? "static" : isGhPages ? "github_pages" : "vercel",
             // Auto-registers server/middleware/* (the PWA install page +
             // manifest + head-tag middleware). Nitro v3 defaults serverDir to
             // false, so removing this silently unwires /?install=1 on deploys.
-            serverDir: isGhPages ? false : "./server",
+            serverDir: isGhPages || isFtp ? false : "./server",
           }),
         ]
       : []),

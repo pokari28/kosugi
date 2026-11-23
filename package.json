@@ -10,6 +10,7 @@
     "dev": "node scripts/with-app-env.mjs vite dev --host 0.0.0.0 --port 8080",
     "build": "node scripts/with-app-env.mjs vite build && npm run db:migrate",
     "build:pages": "node scripts/with-app-env.mjs vite build",
+    "build:ftp": "FTP_STATIC=true VITE_SITE_URL=https://cosugi-akita.com VITE_CONTACT_ENDPOINT=/contact-send.php node scripts/with-app-env.mjs vite build; test -f .output/public/assets/index-*.js && SITE_BASE=/ bash scripts/prepare-ftp.sh .output/public",
     "db:migrate": "node scripts/migrate.mjs",
     "build:dev": "node scripts/with-app-env.mjs vite build --mode development",
     "preview": "node scripts/with-app-env.mjs vite preview",

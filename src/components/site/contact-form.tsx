@@ -5,6 +5,22 @@ import { CONTACT_CATEGORIES, COMPANY } from "@/data/site";
 
 type Status = "idle" | "sending" | "done";
 
+const contactEndpoint = import.meta.env.VITE_CONTACT_ENDPOINT || "";
+
+function fieldError(data: FormData) {
+  const company = String(data.get("company") ?? "").trim();
+  const name = String(data.get("name") ?? "").trim();
+  const email = String(data.get("email") ?? "").trim();
+  const tel = String(data.get("tel") ?? "").trim();
+  const message = String(data.get("message") ?? "").trim();
+  if (!company || !name || !email || !message) return "必須項目をご入力ください。";
+  if (company.length > 100 || name.length > 80 || message.length > 2000) return "文字数が上限を超えています。";
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return "メールアドレスの形式が正しくありません。";
+  if (tel && !/^[0-9+\-() ]{8,20}$/.test(tel)) return "電話番号の形式が正しくありません。";
+  if (data.get("agree") !== "on") return "個人情報の取り扱いにご同意ください。";
+  return "";
+}
+
 export function ContactForm({ defaultCategory }: { defaultCategory?: string }) {
   const initialCategory = useMemo(() => {
     if (CONTACT_CATEGORIES.some((c) => c.value === defaultCategory)) {
@@ -16,7 +32,7 @@ export function ContactForm({ defaultCategory }: { defaultCategory?: string }) {
   const [status, setStatus] = useState<Status>("idle");
   const [error, setError] = useState("");
 
-  function onSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setError("");
     const data = new FormData(e.currentTarget);
@@ -25,34 +41,74 @@ export function ContactForm({ defaultCategory }: { defaultCategory?: string }) {
     const email = String(data.get("email") ?? "").trim();
     const tel = String(data.get("tel") ?? "").trim();
     const message = String(data.get("message") ?? "").trim();
-    const agree = data.get("agree") === "on";
 
-    if (!company || !name || !email || !message) {
-      setError("必須項目をご入力ください。");
+    if (data.get("website")) {
+      setError("送信できませんでした。");
       return;
     }
-    if (!agree) {
-      setError("個人情報の取り扱いにご同意ください。");
+    const invalid = fieldError(data);
+    if (invalid) {
+      setError(invalid);
       return;
     }
 
     setStatus("sending");
-    const payload = {
-      company,
-      name,
-      email,
-      tel,
-      category: String(data.get("category") ?? ""),
-      message,
-      at: new Date().toISOString(),
-    };
-    try {
-      const prev = JSON.parse(localStorage.getItem("cosugi-inquiries") || "[]") as unknown[];
-      localStorage.setItem("cosugi-inquiries", JSON.stringify([payload, ...prev].slice(0, 20)));
-    } catch {
-      /* ignore */
+    if (!contactEndpoint) {
+      const payload = {
+        company,
+        name,
+        email,
+        tel,
+        category: String(data.get("category") ?? ""),
+        message,
+        at: new Date().toISOString(),
+      };
+      try {
+        const prev = JSON.parse(localStorage.getItem("cosugi-inquiries") || "[]") as unknown[];
+        localStorage.setItem("cosugi-inquiries", JSON.stringify([payload, ...prev].slice(0, 20)));
+      } catch {
+        /* preview only */
+      }
+      window.setTimeout(() => setStatus("done"), 500);
+      return;
     }
-    window.setTimeout(() => setStatus("done"), 500);
+
+    try {
+      const tokenRes = await fetch(contactEndpoint, { credentials: "same-origin", headers: { Accept: "application/json" } });
+      const tokenBody = (await tokenRes.json().catch(() => null)) as { token?: string } | null;
+      if (!tokenRes.ok || !tokenBody?.token) {
+        setStatus("idle");
+        setError("送信の準備に失敗しました。時間をおいて再度お試しください。");
+        return;
+      }
+      await new Promise((resolve) => window.setTimeout(resolve, 2000));
+      const res = await fetch(contactEndpoint, {
+        method: "POST",
+        credentials: "same-origin",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          company,
+          name,
+          email,
+          tel,
+          category: String(data.get("category") ?? ""),
+          message,
+          agree: true,
+          token: tokenBody.token,
+          website: "",
+        }),
+      });
+      const body = (await res.json().catch(() => null)) as { ok?: boolean; error?: string } | null;
+      if (!res.ok || !body?.ok) {
+        setStatus("idle");
+        setError(body?.error || "送信に失敗しました。時間をおいて再度お試しください。");
+        return;
+      }
+      setStatus("done");
+    } catch {
+      setStatus("idle");
+      setError("送信に失敗しました。通信環境をご確認ください。");
+    }
   }
 
   if (status === "done") {
@@ -75,6 +131,7 @@ export function ContactForm({ defaultCategory }: { defaultCategory?: string }) {
 
   return (
     <form onSubmit={onSubmit} className="space-y-5" noValidate>
+      <input name="website" tabIndex={-1} autoComplete="off" aria-hidden="true" className="absolute -left-[9999px] h-px w-px opacity-0" />
       <Field label="会社名" required>
         <input className={field} name="company" autoComplete="organization" required />
       </Field>
